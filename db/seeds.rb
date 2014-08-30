@@ -14,7 +14,7 @@ example_query_ga = PriceQuery.create({
       :city => "San Francisco"
 	})
 
-example_result1_1 = {
+example_query_ga.price_results.create({
 	"localized_display_name"=>"uberX", 
 	"low_estimate"=>"6", 
 	"display_name"=>"uberX", 
@@ -22,9 +22,9 @@ example_result1_1 = {
 	"surge_multiplier"=>1.0, 
 	"estimate"=>"$6-8", 
 	"high_estimate"=>"8", 
-	"currency_code"=>"USD"}
+	"currency_code"=>"USD"})
 
-example_result1_2 = {
+example_query_ga.price_results.create({
 	"localized_display_name"=>"uberXL", 
 	"low_estimate"=>"11", 
 	"display_name"=>"uberXL", 
@@ -32,9 +32,9 @@ example_result1_2 = {
 	"surge_multiplier"=>1.0, 
 	"estimate"=>"$11-14", 
 	"high_estimate"=>"14", 
-	"currency_code"=>"USD"}
+	"currency_code"=>"USD"})
 
-example_result1_3 = {
+example_query_ga.price_results.create({
 	"localized_display_name"=>"UberBLACK", 
 	"low_estimate"=>"17", 
 	"display_name"=>"UberBLACK", 
@@ -42,9 +42,9 @@ example_result1_3 = {
 	"surge_multiplier"=>1.0, 
 	"estimate"=>"$17-21", 
 	"high_estimate"=>"21", 
-	"currency_code"=>"USD"} 
+	"currency_code"=>"USD"}) 
 
-example_result1_4 = {
+example_query_ga.price_results.create({
 	"localized_display_name"=>"UberSUV", 
 	"low_estimate"=>"25", 
 	"display_name"=>"UberSUV", 
@@ -52,9 +52,9 @@ example_result1_4 = {
 	"surge_multiplier"=>1.0, 
 	"estimate"=>"$25-29", 
 	"high_estimate"=>"29", 
-	"currency_code"=>"USD"} 
+	"currency_code"=>"USD"})
 
-example_result1_5 = {
+example_query_ga.price_results.create({
 	"localized_display_name"=>"uberTAXI", 
 	"low_estimate"=>nil, 
 	"display_name"=>"uberTAXI", 
@@ -62,5 +62,5 @@ example_result1_5 = {
 	"surge_multiplier"=>1, 
 	"estimate"=>"Metered", 
 	"high_estimate"=>nil, 
-	"currency_code"=>nil}
-}
+	"currency_code"=>nil})
+
