@@ -12,5 +12,3 @@ ETHON: performed EASY effective_url=https://api.uber.com/v1/estimates/time?serve
  
 TIME ESTIMATES
 {"times"=>[{"localized_display_name"=>"uberX", "estimate"=>447, "display_name"=>"uberX", "product_id"=>"a1111c8c-c720-46c3-8534-2fcdd730040d"}, {"localized_display_name"=>"uberXL", "estimate"=>897, "display_name"=>"uberXL", "product_id"=>"821415d8-3bd5-4e27-9604-194e4359a449"}, {"localized_display_name"=>"UberBLACK", "estimate"=>153, "display_name"=>"UberBLACK", "product_id"=>"d4abaae7-f4d6-4152-91cc-77523e8165a4"}, {"localized_display_name"=>"UberSUV", "estimate"=>163, "display_name"=>"UberSUV", "product_id"=>"8920cb5e-51a4-4fa4-acdf-dd86c5e18ae0"}]}
-  Rendered info/index.html.erb within layouts/application (0.1ms)
-Completed 200 OK in 581ms (Views: 64.2ms | ActiveRecord: 0.0ms)
