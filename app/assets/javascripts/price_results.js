@@ -23,31 +23,31 @@ $(document).ready(function() {
   });
 
   // change background color of results based on surge multiplier
-  $('.surge').each(function() {
+  $('.surge-mult').each(function() {
     if (parseFloat($(this).html()) >= 2.0) {
-      $(this).parent().css('background-color', '#FF5242');
+      $(this).parent().parent().css('background-color', '#FF5242');
     }
     else if (parseFloat($(this).html()) >= 1.75) {
-      $(this).parent().css('background-color', '#FF7E44');
+      $(this).parent().parent().css('background-color', '#FF7E44');
     }
     else if (parseFloat($(this).html()) >= 1.5) {
-      $(this).parent().css('background-color', '#FFCA54');
+      $(this).parent().parent().css('background-color', '#FFCA54');
     }
     else if (parseFloat($(this).html()) >= 1.25) {
-      $(this).parent().css('background-color', '#FFF355');
+      $(this).parent().parent().css('background-color', '#FFF355');
     }
     else if (parseFloat($(this).html()) >= 1.0) {
-      $(this).parent().css('background-color', '#44FF44');
+      $(this).parent().parent().css('background-color', '#44FF44');
     }
   });
 
   // track mouse position on the page
   var mouseX;
   var mouseY;
-  $(document).mousemove( function(e) {
+  $(document).mousemove(function(e) {
     mouseX = e.pageX; 
     mouseY = e.pageY;
-  }); 
+  });
 
   // use mouse position to determine position of details pop-up
   $('.result').each(function() {

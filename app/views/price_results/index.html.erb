@@ -10,11 +10,31 @@
       <p>
         <!-- for each result, show uber type, surge multiplier, price estimate, and UTC time -->
         <% query.price_results.each do |result| %>
+          
+          <% month = result.created_at.localtime.month %>
+          <% day = result.created_at.localtime.day %>
+          <% year = result.created_at.localtime.year %>
+
+          <% hour = result.created_at.localtime.hour %>
+          <% if hour > 12 %>
+            <% hour = hour - 12 %>
+            <% suffix = "PM" %>
+          <% else %>
+            <% suffix = "AM" %>
+          <% end %>
+
+          <% min = result.created_at.localtime.min %>
+          <% if min < 10 %>
+            <% min = "0" + min.to_s %>
+          <% end %>
+
           <div class="result">
             <div class="uber-type"><strong><%= result.display_name %></strong></div>
-            <div class="surge"><%= result.surge_multiplier %></div>
+            <div class="surge">Surge Multiplier: <span class="surge-mult"><%= result.surge_multiplier %></span></div>
             <div class="estimate">Price Estimate: <%= result.estimate %></div>
-            <div class="time"><%= result.created_at %></div>
+            <div class="time">
+              <%= month %>/<%= day %>/<%= year %> <%= hour %>:<%= min %> <%= suffix %>
+            </div>
           </div>
         <% end %>
       </p>
