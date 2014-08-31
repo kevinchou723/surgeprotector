@@ -1,0 +1,2 @@
+module PriceResultsHelper
+end

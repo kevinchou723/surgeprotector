@@ -1,0 +1,27 @@
+<div class="container">
+
+  <h1>Price Results</h1>
+
+  <!-- for each price query, show all price results -->
+  <% @price_queries.each do |query| %>
+  
+    <div class="query">
+      <span class="query-name"><%= query.city %> (<%= query.nickname %>)</span>
+      <p>
+        <!-- for each result, show uber type, surge multiplier, price estimate, and UTC time -->
+        <% query.price_results.each do |result| %>
+          <div class="result">
+            <div class="uber-type"><strong><%= result.display_name %></strong></div>
+            <div class="surge"><%= result.surge_multiplier %></div>
+            <div class="estimate">Price Estimate: <%= result.estimate %></div>
+            <div class="time"><%= result.created_at %></div>
+          </div>
+        <% end %>
+      </p>
+    </div>
+
+  <% end %>
+
+</div>
+
+<div class="details"></div>
