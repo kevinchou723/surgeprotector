@@ -1,0 +1,37 @@
+* {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.query {
+  cursor: default;
+}
+
+.result {
+  display: inline-block;
+  height: 15px;
+  margin: 0;
+  margin-right: -4px;
+  padding: 0;
+}
+
+.uber-type, .surge, .estimate, .time {
+  display: none;
+}
+
+.details {
+  display: none;
+  padding: 20px;
+}
+
+.details .uber-type, .details .surge, .details .estimate, .details .time {
+  display: block;
+}

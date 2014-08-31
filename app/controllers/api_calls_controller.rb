@@ -4,7 +4,6 @@ class ApiCallsController < ApplicationController
     query
   end
 
-
   def query
     price_queries = PriceQuery.all
     price_queries.each do |query|
