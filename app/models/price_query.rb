@@ -1,6 +1,7 @@
 class PriceQuery < ActiveRecord::Base
 
   has_many :price_results
+  has_many :averages
 
 	validates :start_latitude,
     :presence => true,

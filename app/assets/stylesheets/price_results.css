@@ -21,6 +21,7 @@
 .details {
   display: none;
   padding: 10px;
+  margin: 0;
 }
 
 .details .uber-type, .details .surge, .details .estimate, .details .time {

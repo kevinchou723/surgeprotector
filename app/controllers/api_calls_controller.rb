@@ -52,6 +52,43 @@ class ApiCallsController < ApplicationController
         price_result.hour_created = price_result.created_at.hour
         price_result.save
 
+        day = price_result.day_of_week
+        hour = price_result.hour_created
+
+        day_all = query.price_results.where(day_of_week: day).all
+        day_hour_all = day_all.where(hour_created: hour).all
+
+        total_surge = 0
+
+        day_hour_all.each do |entry|
+          total_surge += entry.surge_multiplier
+        end
+
+        average_surge = total_surge / day_hour_all.length
+
+        if query.averages.find_by_day_of_week(day) == nil
+          avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
+        else
+          day_entries = query.averages.where(day_of_week: day).all
+
+          found_hour = false
+
+          day_entries.each do |entry|
+            if entry.hour_created == hour
+              avg_entry = entry
+              found_hour = true
+            end
+          end
+
+          if found_hour == false
+            avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
+          end
+
+        end
+
+        avg_entry.surge_multiplier = average_surge
+        avg_entry.save
+
       end
 
       puts ' '

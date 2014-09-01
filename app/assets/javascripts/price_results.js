@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   // set width of each result relative to container width
   var setWidth = function() {
-    var resultWidth = $('.center').width() / (maxResults - 4);
+    var resultWidth = $('.center').width() / (maxResults - 3);
     $('.result').each(function() {
       $(this).css('width', resultWidth);
     });
