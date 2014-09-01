@@ -22,6 +22,7 @@
   display: none;
   padding: 10px;
   margin: 0;
+  width: 175px;
 }
 
 .details .uber-type, .details .surge, .details .estimate, .details .time {

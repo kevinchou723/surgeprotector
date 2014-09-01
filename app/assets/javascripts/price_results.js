@@ -57,9 +57,9 @@ $(document).ready(function() {
     $(this).mouseover(function() {
       $('.details').html('');
       $('.details').css({
-        'position': 'fixed',
-        'top': mouseY + 5,
-        'left': mouseX + 5,
+        'position': 'absolute',
+        'top': mouseY - ($('.center').width() * 0.13),
+        'left': mouseX - ($('.center').width() * 0.28),
         'background-color': '#FFF',
         'border': '1px solid black'
       }).show();
