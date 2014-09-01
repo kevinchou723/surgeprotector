@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'price_results#index'
 
+  get '/about', to: 'site#about'
+
   get 'api_calls/index'
 
 end
