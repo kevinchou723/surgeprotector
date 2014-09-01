@@ -87,6 +87,7 @@ $(document).ready(function() {
     surgeMults.push(parseFloat($(this).html()));
   });
 
+  // format each data point into an object and push into the data array
   for (i = 0; i < hours.length; i += 1) {
     var obj = {};
     obj.hour = hours[i];
@@ -98,10 +99,12 @@ $(document).ready(function() {
   console.log(surgeMults);
   console.log(data);
 
+  // set the chart scale
   var x = d3.scale.linear()
     .domain([0, d3.max(surgeMults)])
     .range([0, $('.center').width()]);
 
+  // create the chart
   d3.select('.chart')
   .selectAll('div')
     .data(data)
