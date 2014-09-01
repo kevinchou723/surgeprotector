@@ -80,7 +80,7 @@ $(document).ready(function() {
   var data = [];
 
   $('.hour-created').each(function() {
-    hours.push(parseInt($(this).html()));
+    hours.push($(this).html());
   });
 
   $('.surge-multiplier').each(function() {
@@ -94,10 +94,6 @@ $(document).ready(function() {
     obj.surge = surgeMults[i];
     data.push(obj);
   }
-
-  console.log(hours);
-  console.log(surgeMults);
-  console.log(data);
 
   // set the chart scale
   var x = d3.scale.linear()
@@ -113,7 +109,7 @@ $(document).ready(function() {
       return x(d.surge) + "px";
     })
     .text(function(d) {
-      return d.surge;
+      return d.hour + '(' + d.surge + ')';
     });
 
 });
