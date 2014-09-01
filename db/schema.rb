@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140901033126) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+    t.string   "start_address"
+    t.string   "end_address"
   end
 
   create_table "price_results", force: true do |t|
