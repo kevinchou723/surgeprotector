@@ -12,9 +12,9 @@
           <!-- for each result, show uber type, surge multiplier, price estimate, and UTC time -->
           <% query.price_results.each do |result| %>
             
-            <% month = result.created_at.localtime.month %>
-            <% day = result.created_at.localtime.day %>
-            <% year = result.created_at.localtime.year %>
+            <% month = result.created_at.month %>
+            <% day = result.created_at.day %>
+            <% year = result.created_at.year %>
 
             <% hour = result.created_at.localtime.hour %>
             <% if hour > 12 %>
