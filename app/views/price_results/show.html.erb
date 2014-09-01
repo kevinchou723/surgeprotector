@@ -1,0 +1,37 @@
+<div class="col-md-2"></div>
+<div class="col-md-8 center">
+  <h1><%= @price_query.city %> (<%= @price_query.nickname %>)</h1>
+
+  <div class="days-container">
+
+    <% @days.each do |day| %>
+      <div class="day">
+        <h4><%= day %></h4>
+        <% averages = @price_query.averages.where(day_of_week: day).all.order("hour_created") %>
+        <% averages.each do |average| %>
+
+          <% if average.hour_created > 12 %>
+            <% average.hour_created = average.hour_created - 12 %>
+            <% suffix = "PM" %>
+          <% else %>
+            <% suffix = "AM" %>
+          <% end %>
+
+          <div class="hour">
+            <span class="hour-created">
+              <%= average.hour_created %>:00 <%= suffix %>
+            </span>
+            <span class="surge-multiplier">
+              <%= average.surge_multiplier %>
+            </span>
+          </div>
+        <% end %>
+        <div class="chart"></div>
+      </div>
+    <% end %>
+
+  </div>
+
+
+</div>
+<div class="col-md-2"></div>
