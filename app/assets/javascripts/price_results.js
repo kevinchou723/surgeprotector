@@ -16,11 +16,14 @@ $(document).ready(function() {
   });
 
   // set width of each result relative to container width
-  var resultWidth = $('.container').width() / (maxResults - 3);
+  var setWidth = function() {
+    var resultWidth = $('.center').width() / (maxResults - 3);
+    $('.result').each(function() {
+      $(this).css('width', resultWidth);
+    });
+  };
 
-  $('.result').each(function() {
-    $(this).css('width', resultWidth);
-  });
+  setInterval(setWidth, 1);
 
   // change background color of results based on surge multiplier
   $('.surge-mult').each(function() {
@@ -54,9 +57,9 @@ $(document).ready(function() {
     $(this).mouseover(function() {
       $('.details').html('');
       $('.details').css({
-        'position': 'absolute',
-        'top': mouseY,
-        'left': mouseX,
+        'position': 'fixed',
+        'top': mouseY + 5,
+        'left': mouseX + 5,
         'background-color': '#FFF',
         'border': '1px solid black'
       }).show();

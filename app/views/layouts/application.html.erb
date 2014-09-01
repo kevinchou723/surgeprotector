@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>Surge Protector</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="header">
+  <a href="/">Home</a> <a href="#">About</a> <a href="/api_calls/index">Data</a>
+
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <%= yield %>
+
+  </div>
+</div>
 
 </body>
 </html>
