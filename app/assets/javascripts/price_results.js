@@ -112,4 +112,14 @@ $(document).ready(function() {
       return d.hour + '(' + d.surge + ')';
     });
 
+  $('.day').each(function(index, value) {
+    $(value).on('click', function() {
+      $('.chart').each(function(i, v) {
+        if (i === index) {
+          $(v).fadeToggle('slow');
+        }
+      });
+    });
+  });
+
 });
