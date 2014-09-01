@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 example_query_sf = PriceQuery.create({
 	:start_latitude => 37.786958,
   :start_longitude => -122.394462,
@@ -238,4 +230,42 @@ example_query_sea.price_results.create({
 	"estimate"=>"$20-23",
 	"high_estimate"=>"23",
 	"currency_code"=>"USD"
+})
+
+# International Price Queries
+
+example_query_london = PriceQuery.create({
+	:start_latitude => 51.5286416,
+	:start_longitude => -0.1015987,
+	:end_latitude => 51.522532,
+	:end_longitude => -0.109437,
+	:city => "London",
+	:nickname => "London to GA campus"
+})
+
+example_query_hk = PriceQuery.create({
+	:start_latitude => 22.3700555,
+	:start_longitude => 114.1535941,
+	:end_latitude => 22.2830469,
+	:end_longitude => 114.1570795,
+	:city => "Hong Kong",
+	:nickname => "Hong Kong to GA campus"
+})
+
+example_query_melbourne = PriceQuery.create({
+	:start_latitude => -37.8602828,
+	:start_longitude => 145.079616,
+	:end_latitude => -37.8182661,
+	:end_longitude => 144.9623883,
+	:city => "Melbourne",
+	:nickname => "Melbourne to GA campus"
+})
+
+example_query_sydney = PriceQuery.create({
+	:start_latitude => -33.7969235,
+	:start_longitude => 150.9224326,
+	:end_latitude => -33.869824,
+	:end_longitude => 151.206423,
+	:city => "Sydney",
+	:nickname => "Sydney to GA campus"
 })
