@@ -7,7 +7,7 @@
     <% @days.each do |day| %>
       <div class="day">
         <h4><%= day %></h4>
-        <% averages = @price_query.averages.where(day_of_week: day).all %>
+        <% averages = @price_query.averages.where(day_of_week: day).all.order("hour_created") %>
         <% averages.each do |average| %>
 
           <% if average.hour_created > 12 %>
