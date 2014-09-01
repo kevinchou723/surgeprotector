@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe PriceResultsController, :type => :controller do
+RSpec.describe SiteController, :type => :controller do
 
-  describe "GET index" do
+  describe "GET about" do
     it "returns http success" do
-      get :index
+      get :about
       expect(response).to be_success
     end
   end

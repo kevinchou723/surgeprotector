@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830200949) do
+ActiveRecord::Schema.define(version: 20140901033126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "averages", force: true do |t|
+    t.string   "day_of_week"
+    t.integer  "hour_created"
+    t.float    "surge_multiplier"
+    t.integer  "price_query_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "price_queries", force: true do |t|
     t.float    "start_latitude"
@@ -39,6 +48,8 @@ ActiveRecord::Schema.define(version: 20140830200949) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "currency_code"
+    t.string   "day_of_week"
+    t.integer  "hour_created"
   end
 
 end

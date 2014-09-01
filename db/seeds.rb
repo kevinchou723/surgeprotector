@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 example_query_sf = PriceQuery.create({
 	:start_latitude => 37.786958,
   :start_longitude => -122.394462,
@@ -249,7 +241,7 @@ example_query_london = PriceQuery.create({
 	:end_longitude => -0.109437,
 	:city => "London",
 	:nickname => "London to GA campus"
-	})
+})
 
 example_query_hk = PriceQuery.create({
 	:start_latitude => 22.3700555,
@@ -258,7 +250,7 @@ example_query_hk = PriceQuery.create({
 	:end_longitude => 114.1570795,
 	:city => "Hong Kong",
 	:nickname => "Hong Kong to GA campus"
-	})
+})
 
 example_query_melbourne = PriceQuery.create({
 	:start_latitude => -37.8602828,
@@ -267,7 +259,7 @@ example_query_melbourne = PriceQuery.create({
 	:end_longitude => 144.9623883,
 	:city => "Melbourne",
 	:nickname => "Melbourne to GA campus"
-	})
+})
 
 example_query_sydney = PriceQuery.create({
 	:start_latitude => -33.7969235,
@@ -276,4 +268,4 @@ example_query_sydney = PriceQuery.create({
 	:end_longitude => 151.206423,
 	:city => "Sydney",
 	:nickname => "Sydney to GA campus"
-	})
+})
