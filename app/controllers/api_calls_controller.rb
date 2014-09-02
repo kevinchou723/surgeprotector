@@ -27,6 +27,13 @@ class ApiCallsController < ApplicationController
       response_array.each do |response|
         price_result = query.price_results.create(response)
 
+        # TIMEZONE LOGIC -- NOT WORKING YET
+
+        # timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
+
+        # price_result.local_time_created = timezone.time price_result.created_at
+        # price_result.save
+
         # save the price result's day of week the db
         if price_result.created_at.monday? == true
           price_result.day_of_week = "Monday"
@@ -55,49 +62,51 @@ class ApiCallsController < ApplicationController
         price_result.hour_created = price_result.created_at.hour
         price_result.save
 
-        # find the day and hour for the price result
-        day = price_result.day_of_week
-        hour = price_result.hour_created
+        # AVERAGES LOGIC -- NOT IN USE
 
-        # find all day/hour price result matches associated with the query
-        day_all = query.price_results.where(day_of_week: day).all
-        day_hour_all = day_all.where(hour_created: hour).all
+        # # find the day and hour for the price result
+        # day = price_result.day_of_week
+        # hour = price_result.hour_created
 
-        total_surge = 0
+        # # find all day/hour price result matches associated with the query
+        # day_all = query.price_results.where(day_of_week: day).all
+        # day_hour_all = day_all.where(hour_created: hour).all
 
-        # add up surge multipliers for the day/hour price result matches
-        day_hour_all.each do |entry|
-          total_surge += entry.surge_multiplier
-        end
+        # total_surge = 0
 
-        # calculate average surge for a given day/hour
-        average_surge = total_surge / day_hour_all.length
+        # # add up surge multipliers for the day/hour price result matches
+        # day_hour_all.each do |entry|
+        #   total_surge += entry.surge_multiplier
+        # end
 
-        # find the day/hour match for the query in the averages table
-        if query.averages.find_by_day_of_week(day) == nil
-          avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
-        else
-          day_entries = query.averages.where(day_of_week: day).all
+        # # calculate average surge for a given day/hour
+        # average_surge = total_surge / day_hour_all.length
 
-          found_hour = false
+        # # find the day/hour match for the query in the averages table
+        # if query.averages.find_by_day_of_week(day) == nil
+        #   avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
+        # else
+        #   day_entries = query.averages.where(day_of_week: day).all
 
-          day_entries.each do |entry|
-            if entry.hour_created == hour
-              avg_entry = entry
-              found_hour = true
-            end
-          end
+        #   found_hour = false
 
-          # if not found, created new entry for that day/hour
-          if found_hour == false
-            avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
-          end
+        #   day_entries.each do |entry|
+        #     if entry.hour_created == hour
+        #       avg_entry = entry
+        #       found_hour = true
+        #     end
+        #   end
 
-        end
+        #   # if not found, created new entry for that day/hour
+        #   if found_hour == false
+        #     avg_entry = query.averages.create({:day_of_week => day, :hour_created => hour})
+        #   end
 
-        # update the entry in the averages table with the average surge
-        avg_entry.surge_multiplier = average_surge
-        avg_entry.save
+        # end
+
+        # # update the entry in the averages table with the average surge
+        # avg_entry.surge_multiplier = average_surge
+        # avg_entry.save
 
       end
 
