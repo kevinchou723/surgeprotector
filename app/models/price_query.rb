@@ -1,7 +1,8 @@
 class PriceQuery < ActiveRecord::Base
 
+  belongs_to :user
   has_many :price_results
-  has_many :averages
+  # has_many :averages
 
 	validates :start_latitude,
     :presence => true,
