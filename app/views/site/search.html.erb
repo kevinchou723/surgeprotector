@@ -1,1 +1,11 @@
+<!-- TEMPORARY PAGE TO HANDLE SEARCHES FROM THE HP
+EVENTUALLY GET RID OF THIS IN FAVOR OF AJAX CALL -->
+
 <h1>Search Results</h1>
+
+<% @filtered_results.each do |result| %>
+  <div class="result">
+    <span class="hour"><%= result.created_at %></span>
+    <span class="surge"><%= result.surge_multiplier %></span>
+  </div>
+<% end %>
