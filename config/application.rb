@@ -28,3 +28,7 @@ module Surgeprotector
     # config.i18n.default_locale = :de
   end
 end
+
+Timezone::Configure.begin do |c|
+    c.username = 'lisavogtsf'
+end
