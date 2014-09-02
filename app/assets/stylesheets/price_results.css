@@ -1,6 +1,9 @@
+/*TEST STYLES FOR PRICE RESULTS
+NOT CURRENTLY IN USE*/
+
 /*styles for price_queries index*/
 
-.queries-container {
+/*.queries-container {
   border-top: 1px solid #000;
   margin-top: 30px;
 }
@@ -29,12 +32,12 @@
 
 .details .uber-type, .details .surge, .details .estimate, .details .time {
   display: block;
-}
+}*/
 
 
 /*styles for price_queries show page*/
 
-.days-container {
+/*.days-container {
   border-top: 1px solid #000;
   margin-top: 30px;
 }
@@ -54,4 +57,4 @@
   margin-top: 10px;
   text-align: right;
   padding-right: 5px;
-}
+}*/
