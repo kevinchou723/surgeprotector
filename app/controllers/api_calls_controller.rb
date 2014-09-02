@@ -27,39 +27,18 @@ class ApiCallsController < ApplicationController
       response_array.each do |response|
         price_result = query.price_results.create(response)
 
-        # TIMEZONE LOGIC -- NOT WORKING YET
+        # find the query's timezone
+        timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
 
-        # timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
-
-        # price_result.local_time_created = timezone.time price_result.created_at
-        # price_result.save
+        price_result.local_time_created = timezone.time price_result.created_at
+        price_result.save
 
         # save the price result's day of week the db
-        if price_result.created_at.monday? == true
-          price_result.day_of_week = "Monday"
-          price_result.save
-        elsif price_result.created_at.tuesday? == true
-          price_result.day_of_week = "Tuesday"
-          price_result.save
-        elsif price_result.created_at.wednesday? == true
-          price_result.day_of_week = "Wednesday"
-          price_result.save
-        elsif price_result.created_at.thursday? == true
-          price_result.day_of_week = "Thursday"
-          price_result.save
-        elsif price_result.created_at.friday? == true
-          price_result.day_of_week = "Friday"
-          price_result.save
-        elsif price_result.created_at.saturday? == true
-          price_result.day_of_week = "Saturday"
-          price_result.save
-        elsif price_result.created_at.sunday? == true
-          price_result.day_of_week = "Sunday"
-          price_result.save
-        end
+        price_result.day_of_week = price_result.local_time_created.strftime("%A")
+        price_result.save
 
         # save the price result's hour created to the db
-        price_result.hour_created = price_result.created_at.hour
+        price_result.hour_created = price_result.local_time_created.hour
         price_result.save
 
         # AVERAGES LOGIC -- NOT IN USE
