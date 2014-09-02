@@ -1,6 +1,9 @@
 class PriceQuery < ActiveRecord::Base
 
   has_many :price_results
+
+  # AVERAGE MODEL NOT IN USE AT THE MOMENT
+  # REMOVE LATER
   has_many :averages
 
 	validates :start_latitude,
