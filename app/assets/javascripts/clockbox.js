@@ -1,5 +1,3 @@
-tday  =new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
 
 function GetClock(){
 d = new Date();
@@ -22,9 +20,10 @@ if(nmin <= 9) {nmin = "0" +nmin;}
 if(nsec <= 9) {nsec = "0" +nsec;}
 
 
-var clock = document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+var clock = document.getElementById('clockbox').innerHTML=""+(nmonth+1)+"/"+ndate+"/"+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
 setTimeout("GetClock()", 1000);
 }
 window.onload=GetClock;
+
 
 
