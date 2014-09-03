@@ -9,6 +9,9 @@
 	<h3>Registered Users</h3>
 	<h5>Please login in your email address</h5>
 	<br/>
+	<% flash.each do |k, v| %>
+		  <h4 id="<%= k %>"><%= v %></h4>
+		<% end %>
 	<%= form_for :user do |f|  %>
 		<div class="form-group">
 		    <%= f.label :email %>:
@@ -28,7 +31,7 @@
 
 	<h3>New Users</h3>
 	<h5>some description on what signing up will do</h5>
-	
+
 
 </div>
 
