@@ -12,11 +12,11 @@
 	<p>No saved places</p>
 <% else %>
 	<% @price_queries.each do |query| %>
-	  <p><a href="/users/<%= @user.id  %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a></p>
+	  <p><a href="/users/<%= @user.id  %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
 	<% end %>
 <% end %>
 
-<%= button_to "Add a new place", new_user_price_query_path(@user.id), method: :get, class: "btn btn-small"  %>
+<%= button_to "Add a new place", new_user_price_query_path(@user.id), method: :get, class: "btn btn-default"  %>
 
 <br/><br/><br/>
 

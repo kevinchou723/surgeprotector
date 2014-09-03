@@ -38,9 +38,25 @@ class PriceQueriesController < ApplicationController
     puts params.inspect
   end
 
-  def edit
-  end
+  ## decided to simplify and not include these actions
+  # def edit
+  #     @user = User.find_by_id(params[:user_id])
+  #     @price_query = PriceQuery.find_by_id(params[:id])
+  # end
 
-  def delete
+  # def update
+  #     @user = User.find_by_id(params[:user_id])
+  #     @price_query = PriceQuery.find_by_id(params[:id])
+
+  #     redirect_to user_path(@user.id)
+  # end
+
+  def destroy
+      @user = User.find_by_id(params[:user_id])
+      @price_query = PriceQuery.find_by_id(params[:id])
+
+      @price_query.destroy
+
+      redirect_to user_path(@user.id)
   end
 end
