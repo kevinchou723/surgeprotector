@@ -6,11 +6,9 @@
         Select City <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#">San Francisco</a></li>
-          <li><a href="#">New York City</a></li>
-          <li><a href="#">Los Angeles</a></li>
-          <li><a href="#">Hong Kong</a></li>
-          <li><a href="#">Seattle</a></li>
+          <% @cities.each do |city| %>
+            <li><a href="#"><%= city %></a></li>
+          <% end %>
         </ul>
     </div>    
     <br/><br/>
@@ -34,11 +32,9 @@
       Select Uber Type<span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">uberX</a></li>
-        <li><a href="#">uberXL</a></li>
-        <li><a href="#">UberBLACK</a></li>
-        <li><a href="#">UberSUV</a></li>
-        <li><a href="#">UberTAXI</a></li>
+        <% @uber_types.each do |uber_type| %>
+          <li><a href="#"><%= uber_type %></a></li>
+        <% end %>
       </ul>
     </div>
     <br/><br/>

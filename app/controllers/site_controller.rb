@@ -1,6 +1,27 @@
 class SiteController < ApplicationController
 
   def index
+    @cities = []
+
+    PriceQuery.all.each do |query|
+      if @cities.include? query.city
+      else
+        @cities.push(query.city)
+      end
+    end
+
+    @uber_types = []
+
+    PriceResult.all.each do |result|
+      if @uber_types.include? result.display_name
+      else
+        @uber_types.push(result.display_name)
+      end
+    end
+
+    puts 'UBER TYPES!!!!'
+    puts @uber_types
+
   end
 
   def search
