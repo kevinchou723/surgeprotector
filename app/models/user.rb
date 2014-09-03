@@ -11,5 +11,10 @@ class User < ActiveRecord::Base
 
 	validates :last_name, presence: true
 
+	def self.authenticate email, password
+		User.find_by_email(email).try(:authenticate, password)
+	end
+
+	# could add method to reset password here
 
 end
