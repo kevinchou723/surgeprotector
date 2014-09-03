@@ -1,4 +1,9 @@
 <div class="col-md-3 left-side">
+
+  <% flash.each do |k, v| %>
+    <h4 id="<%= k %>"><%= v %></h4>
+  <% end %>
+
   <h1>Current City</h1>
   <p>current date and time</p>
     <div class="btn-group">
