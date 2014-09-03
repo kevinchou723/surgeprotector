@@ -4,13 +4,17 @@
       box-sizing: border-box;
 }
 
-.header {
+/*.header {
   padding: 20px;
-}
+}*/
 
-.footer {
+/*.footer {
   height: 100px;
-}
+  position: relative;
+  margin-top: -100px;
+  clear:both;
+  padding-top:20px;
+}*/
 
 .header a {
   margin-right: 10px;
@@ -33,4 +37,47 @@
   width: 100px;
   border-radius: 50px;
   margin-right: 10px;
+}
+
+.dropdown-toggle {
+  width: 300px;
+  text-align: left;
+}
+
+.form-control {
+  width: 300px;
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+html {
+  background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
+  background-size: cover;
+  font-family:'Michroma', sans-serif;;
+}
+
+.left-side {
+  background-color: rgba(0,0,0,.67);
+  height: 800px;
+}
+
+.navbar {
+  font-size: 17px;
+  background-color: black;
+  /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
+  height: 60px;
+  border-style: none;
+  font-family: 'Michroma', sans-serif;
+} 
+
+#navli {
+  color: rgb(161,225,179);
+  /*color: #fefefe;*/
+
 }
