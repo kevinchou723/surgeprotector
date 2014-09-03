@@ -1,29 +1,36 @@
 $(document).ready(function() {
 
-  var hours = [];
-  var surges = [];
-  var data = [];
+  // dropdown toggle
 
-  $('.hour').each(function() {
-    hours.push($(this).html());
-  });
+  $('.dropdown-toggle').dropdown();
+  
 
-  $('.surge').each(function() {
-    surges.push(parseFloat($(this).html()));
-  });
+  // LOGIC FOR SEARCH QUERY
 
-  // format each data point into an object and push into the data array
-  for (i = 0; i < hours.length; i += 1) {
-    var obj = {};
-    obj.hour = hours[i];
-    obj.surge = surges[i];
-    data.push(obj);
-  }
+  // var hours = [];
+  // var surges = [];
+  // var data = [];
 
-  console.log(data);
+  // $('.hour').each(function() {
+  //   hours.push($(this).html());
+  // });
+
+  // $('.surge').each(function() {
+  //   surges.push(parseFloat($(this).html()));
+  // });
+
+  // // format each data point into an object and push into the data array
+  // for (i = 0; i < hours.length; i += 1) {
+  //   var obj = {};
+  //   obj.hour = hours[i];
+  //   obj.surge = surges[i];
+  //   data.push(obj);
+  // }
+
+  // console.log(data);
 
 
-    // CHART.JS LOGIC BELOW
+  // CHART.JS LOGIC BELOW
 
   var chartData = {
       labels: ["January", "February", "March", "April", "May", "June", "July"],

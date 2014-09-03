@@ -4,70 +4,46 @@
     <h4 id="<%= k %>"><%= v %></h4>
   <% end %>
 
-  <h1>Current City</h1>
-  <p>current date and time</p>
-  <h1>San Francisco</h1> 
-<div id="clockbox"></div>
-<br/> <br/>
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Select City <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <% @cities.each do |city| %>
-            <li><a href="#"><%= city %></a></li>
-          <% end %>
-        </ul>
-    </div>    
-    <br/><br/>
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Select Day of the Week <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Monday</a></li>
-        <li><a href="#">Tuesday</a></li>
-        <li><a href="#">Wednesday</a></li>
-        <li><a href="#">Thursday</a></li>
-        <li><a href="#">Friday</a></li>
-        <li><a href="#">Saturday</a></li>
-        <li><a href="#">Sunday</a></li>
-      </ul>
+  <h1>San Francisco (CHANGE TO CURRENT CITY)</h1> 
+  <div id="clockbox"></div>
+
+  <select class="form-control options">
+    <option>Select City</option>
+    <% @cities.each do |city| %>
+      <option><%= city %></option>
+    <% end %>
+  </select>
+
+  <select class="form-control options">
+    <option>Select Day of the Week</option>
+    <option>Monday</option>
+    <option>Tuesday</option>
+    <option>Wednesday</option>
+    <option>Thursday</option>
+    <option>Friday</option>
+    <option>Saturday</option>
+    <option>Sunday</option>
+  </select>
+
+  <select class="form-control options">
+    <option>Select Uber Type</option>
+    <% @uber_types.each do |uber_type| %>
+      <option><%= uber_type %></option>
+    <% end %>
+  </select>
+
+  <button class="btn btn-default">Get Surge Data</button>
+
+  <!-- <form action="/search" method="post">
+    <div class="form-group">
+      <input type="text" name="location", class="form-control", placeholder="Enter Location" >
     </div>
-    <br/><br/>
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Select Uber Type<span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <% @uber_types.each do |uber_type| %>
-          <li><a href="#"><%= uber_type %></a></li>
-        <% end %>
-      </ul>
-    </div>
-    <br/><br/>
-
-
-  <form action="/search" method="post">
-<!--   <div class="form-group">
-    <input type="text" name="city", class="form-control", placeholder="City">
-  </div>
-  <div class="form-group">
-    <input type="text" name="day", class="form-control", placeholder="Day of Week" >
-  </div> -->
-  <div class="form-group">
-    <input type="text" name="location", class="form-control", placeholder="Enter Location" >
-  </div>
-
-  <%= token_tag form_authenticity_token %>
-
+    <%= token_tag form_authenticity_token %>
     <input type="submit" value: "Get Surge Data", class="btn btn-default">
-  </form>
+  </form> -->
   
 </div>
 
 <div class="col-md-9 center">
   <canvas id="myChart" width="800" height="400"></canvas>
 </div>
-
-

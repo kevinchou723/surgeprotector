@@ -17,8 +17,7 @@ class PriceQuery < ActiveRecord::Base
   before_validation :reverse_geocode
 
   # geocode just the city name to get lat and lon somewhere in the city as generic end point
-  # geocoded_by :city, :latitude => :end_latitude, :longitude => :end_longitude
-  # before_validation :geocode
+  # done in controller
 
 validates :start_latitude,
     :presence => true,
