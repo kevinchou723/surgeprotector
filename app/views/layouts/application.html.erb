@@ -25,10 +25,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if session[:user_id] == nil %>
-            <li><a id="navli" href="/login">Log In</a></li>
-            <li><a id="navli" href="/signup">Sign Up</a></li>
+            <li><a id="navli" href="/login">Login</a></li>
+            <li><a id="navli" href="/signup">Register</a></li>
           <% else %>
-            <li><a id="navli" href="/logout">Log Out</a></li>
+            <li><a id="navli" href="/logout">Logout</a></li>
           <% end %>
         </ul>
       </div>

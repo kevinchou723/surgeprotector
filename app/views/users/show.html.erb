@@ -1,5 +1,6 @@
 
-
+<div class="col-md-2"></div>
+<div class="col-md-8 center profile">
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <% flash.each do |k, v| %>
@@ -11,13 +12,17 @@
 	<p>No saved places</p>
 <% else %>
 	<% @price_queries.each do |query| %>
-	  <p><a href="/users/<%= @user.id  %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a></p>
+	  <p><a href="/users/<%= @user.id  %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
 	<% end %>
 <% end %>
 
-<%= button_to "Add a new place", new_user_price_query_path(@user.id), method: :get, class: "btn btn-small"  %>
+<%= button_to "Add a new place", new_user_price_query_path(@user.id), method: :get, class: "btn btn-default"  %>
 
-<br/>
+<br/><br/><br/>
 
 <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
+<br/>
 <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
+</div>
+<div class="col-md-2"></div>
+
