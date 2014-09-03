@@ -4,18 +4,6 @@
       box-sizing: border-box;
 }
 
-/*.header {
-  padding: 20px;
-}*/
-
-/*.footer {
-  height: 100px;
-  position: relative;
-  margin-top: -100px;
-  clear:both;
-  padding-top:20px;
-}*/
-
 .header a {
   margin-right: 10px;
 }
@@ -57,7 +45,6 @@ body {
   background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
   background-size: cover;
   background-position: fixed;
-
 }
 
 .left-side {
@@ -71,8 +58,7 @@ body {
   background-color: black;
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
   height: 60px;
-  border-style: none;
-  
+  border-style: none; 
 } 
 
 #navli {
@@ -80,10 +66,14 @@ body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   /*color: #fefefe;*/
-
 }
 
 #clockbox {
   color: white;
   font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
 }
