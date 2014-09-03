@@ -7,40 +7,42 @@
   <h1>San Francisco (CHANGE TO CURRENT CITY)</h1> 
   <div id="clockbox"></div>
 
-  <select class="form-control options">
-    <option>Select City</option>
-    <% @cities.each do |city| %>
-      <option><%= city %></option>
-    <% end %>
-  </select>
+  <form action="/search" method="post" id="get-surge">
+    <input type="hidden" name="search[city]", class="form-control" id="city-form-field">
 
-  <select class="form-control options">
-    <option>Select Day of the Week</option>
-    <option>Monday</option>
-    <option>Tuesday</option>
-    <option>Wednesday</option>
-    <option>Thursday</option>
-    <option>Friday</option>
-    <option>Saturday</option>
-    <option>Sunday</option>
-  </select>
+    <select class="form-control options" id="city">
+      <option>Select City</option>
+      <% @cities.each do |city| %>
+        <option><%= city %></option>
+      <% end %>
+    </select>
 
-  <select class="form-control options">
-    <option>Select Uber Type</option>
-    <% @uber_types.each do |uber_type| %>
-      <option><%= uber_type %></option>
-    <% end %>
-  </select>
+    <input type="hidden" name="search[day]", class="form-control" id="day-form-field">
 
-  <button class="btn btn-default">Get Surge Data</button>
+    <select class="form-control options" id="day">
+      <option>Select Day of the Week</option>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
+    </select>
 
-  <!-- <form action="/search" method="post">
-    <div class="form-group">
-      <input type="text" name="location", class="form-control", placeholder="Enter Location" >
-    </div>
+    <input type="hidden" name="search[uber_type]", class="form-control" id="uber-form-field">
+
+    <select class="form-control options" id="uber-type">
+      <option>Select Uber Type</option>
+      <% @uber_types.each do |uber_type| %>
+        <option><%= uber_type %></option>
+      <% end %>
+    </select>
+
     <%= token_tag form_authenticity_token %>
     <input type="submit" value: "Get Surge Data", class="btn btn-default">
-  </form> -->
+
+  </form>
   
 </div>
 
