@@ -1,8 +1,23 @@
 $(document).ready(function() {
 
-  // dropdown toggle
+  $('#get-surge').on('submit', function(event) {
+    event.preventDefault();
+    console.log('clicked!!!');
 
-  $('.dropdown-toggle').dropdown();
+    var searchParams = {
+      city: $('#city').val(),
+      day: $('#day').val(),
+      uber_type: $('#uber-type').val()
+    };
+
+    console.log(searchParams);
+
+    $.post('/search.json', {search: searchParams})
+      .done(function(data) {
+      console.log(data);
+    });
+
+  });
   
 
   // LOGIC FOR SEARCH QUERY
