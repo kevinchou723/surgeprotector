@@ -21,6 +21,8 @@ class ApiCallsController < ApplicationController
       )
 
       response = JSON.parse(request.body)
+      puts "CHECKING RESPONSE ARRAY IN API ApiCallsController"
+      puts response
       response_array = response['prices']
 
       # for each response, create a new price result associated with the price query
