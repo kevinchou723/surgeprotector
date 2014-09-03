@@ -50,21 +50,20 @@
 
 h1 {
   color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-p {
-  color: white;
-}
-
-html {
+body {
   background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
   background-size: cover;
-  font-family:'Michroma', sans-serif;;
+  background-position: fixed;
+
 }
 
 .left-side {
   background-color: rgba(0,0,0,.67);
-  height: 800px;
+  height: 700px;
+  width: 350px;
 }
 
 .navbar {
@@ -78,8 +77,13 @@ html {
 
 #navli {
   color: #70E1C6;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   /*color: #fefefe;*/
 
+}
+
+#clockbox {
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
