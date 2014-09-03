@@ -1,5 +1,9 @@
 <h2>Sign Up</h2>
 
+<% flash.each do |k, v| %>
+  <h4 id="<%= k %>"><%= v %></h4>
+<% end %>
+
 <%= render partial: "form", locals: {user: @user} %>
 
 <a href="/login">Already a member? Log in &raquo;</a>
