@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902191125) do
+ActiveRecord::Schema.define(version: 20140902225440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20140902191125) do
     t.datetime "updated_at"
   end
 
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "price_queries", force: true do |t|
     t.float    "start_latitude"
     t.float    "start_longitude"
@@ -34,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140902191125) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+    t.string   "start_address"
+    t.string   "end_address"
+    t.integer  "user_id"
   end
 
   create_table "price_results", force: true do |t|
@@ -51,6 +70,43 @@ ActiveRecord::Schema.define(version: 20140902191125) do
     t.string   "day_of_week"
     t.integer  "hour_created"
     t.datetime "local_time_created"
+  end
+
+  create_table "stored_price_results", id: false, force: true do |t|
+    t.integer "id",                                 null: false
+    t.string  "localized_display_name", limit: nil
+    t.string  "low_estimate",           limit: nil
+    t.string  "display_name",           limit: nil
+    t.string  "product_id",             limit: nil
+    t.float   "surge_multiplier"
+    t.string  "estimate",               limit: nil
+    t.string  "high_estimate",          limit: nil
+    t.string  "currency_code",          limit: nil
+    t.string  "day_of_week",            limit: nil
+    t.integer "hour_created"
+    t.integer "price_query_id"
+  end
+
+  create_table "user_routes", force: true do |t|
+    t.float    "start_latitude"
+    t.float    "start_longitude"
+    t.float    "end_latitude"
+    t.float    "end_longitude"
+    t.string   "city"
+    t.string   "nickname"
+    t.string   "start_address"
+    t.string   "end_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

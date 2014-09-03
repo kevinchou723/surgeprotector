@@ -44,6 +44,10 @@
   text-align: left;
 }
 
+.form-control {
+  width: 300px;
+}
+
 h1 {
   color: white;
 }
@@ -55,6 +59,7 @@ p {
 html {
   background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
   background-size: cover;
+  font-family:'Michroma', sans-serif;;
 }
 
 .left-side {
@@ -63,10 +68,16 @@ html {
 }
 
 .navbar {
-  color: rgb(161,225,179);
   font-size: 17px;
   background-color: black;
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
   height: 60px;
   border-style: none;
+  font-family: 'Michroma', sans-serif;
 } 
+
+#navli {
+  color: rgb(161,225,179);
+  /*color: #fefefe;*/
+
+}

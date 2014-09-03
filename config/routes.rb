@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get "/login", to: 'session#new'
+
+  post "/login", to: 'session#create'
+
+  delete "/logout", to: 'session#destroy'
+
+  get "/logout" => "session#destroy" #TODO: DELETE THIS BEFORE PRODUCTION
+
   # REMOVED TEST ROUTES RELATED TO PRICE RESULTS
 
   get '/api_calls/index'
@@ -11,6 +19,12 @@ Rails.application.routes.draw do
   root to: 'site#index'
 
   post '/search', to: 'site#search'
+
+  resources :users do
+    resources :price_queries
+  end
+
+  get '/signup', to: 'users#new'
 
   # 404 route -- update later to render 404 page?
   get '*path', to: 'site#index'
