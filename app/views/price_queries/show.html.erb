@@ -5,4 +5,16 @@
 <div>Start latitude: <%= @price_query.start_latitude  %></div>
 <div>Start longitude: <%= @price_query.start_longitude  %></div>
 
+<!-- for testing -->
+<div>END latitude: <%= @price_query.end_latitude  %></div>
+<div>END longitude: <%= @price_query.end_longitude  %></div>
 
+
+<!-- closes testing -->
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15">
+</iframe>
