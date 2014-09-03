@@ -3,6 +3,10 @@
 
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
+<% flash.each do |k, v| %>
+  <h4 id="<%= k %>"><%= v %></h4>
+<% end %>
+
 <h3>Price Queries</h3>
 
 <% @price_queries.each do |query| %>

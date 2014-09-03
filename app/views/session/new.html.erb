@@ -1,5 +1,9 @@
 <h1>Login</h1>
 
+<% flash.each do |k, v| %>
+  <h4 id="<%= k %>"><%= v %></h4>
+<% end %>
+
 <%= form_for :user do |f|  %>
 	<div class="form-group">
 	    <%= f.label :email %>:
