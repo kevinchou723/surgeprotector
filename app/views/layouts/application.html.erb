@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -22,13 +22,17 @@
         <li><a href="/about">About</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">Login</li>
+        <li><a href="/login">Login</a></li>
       </ul>
     </div>
   </div>
 </nav><br/><br/><br/>
+
+
 <%= yield %>
+
+</div>
 </body>
 <div class="footer"></div>
-</body>
+
 </html>
