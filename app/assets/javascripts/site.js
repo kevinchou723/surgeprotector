@@ -1,65 +1,22 @@
 $(document).ready(function() {
 
-  // $('#get-surge').on('submit', function(event) {
-  //   event.preventDefault();
-  //   console.log('clicked!!!');
-
-  //   $('#city-form-field').val($('#city').val());
-  //   $('#day-form-field').val($('#day').val());
-  //   $('#uber-form-field').val($('#uber-type').val());
-
-  //   var searchParams = {
-  //     city: $('#city-form-field').val(),
-  //     day: $('#day-form-field').val(),
-  //     uber_type: $('#uber-form-field').val()
-  //   };
-
-  //   console.log(searchParams);
-
-  //   $.post('/search.json', {search: searchParams})
-  //     .done(function(data) {
-  //     console.log(data);
-  //   });
-
-  // });
-
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
-    console.log('submitted!!!');
-
-    $('#city-form-field').val($('#city').val());
-    $('#day-form-field').val($('#day').val());
-    $('#uber-form-field').val($('#uber-type').val());
+    console.log('clicked!!!');
 
     var searchParams = {
-      city: $('#city-form-field').val(),
-      day: $('#day-form-field').val(),
-      uber_type: $('#uber-form-field').val()
+      city: $('#city').val(),
+      day: $('#day').val(),
+      uber_type: $('#uber-type').val()
     };
 
-    var formURL = $(this).attr('action');
+    console.log(searchParams);
 
-    function ajaxCall() {
-      console.log(searchParams);
-      console.log(formURL);
+    $.post('/search.json', {search: searchParams})
+      .done(function(data) {
+      console.log(data);
+    });
 
-      $.ajax({
-        url: formURL,
-        type: 'POST',
-        data: {'search': searchParams},
-
-        success: function(data) {
-          console.log('SUCCESS WITH DATA', data);
-          console.log('SEARCH PARAMS', searchParams);
-        },
-        error: function(error) {
-          console.log('ERROR', error);
-          console.log('SEARCH PARAMS', searchParams);
-        }
-      });
-    }
-
-    ajaxCall();
   });
   
 

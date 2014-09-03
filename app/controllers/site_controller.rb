@@ -26,18 +26,16 @@ class SiteController < ApplicationController
 
   def search
 
-    @city = params.require(:search).permit(:city)
-    @day = params.require(:search).permit(:day)
-    @uber = params.require(:search).permit(:uber_type)
+    @city = params[:search][:city]
+    @day = params[:search][:day]
+    @uber = params[:search][:uber_type]
 
     @city_queries = PriceQuery.where(city: @city).all
 
     @filtered_results = []
-
     @city_queries.each do |query|
       @result_matches = query.price_results
-        .where(day_of_week: @day).all
-        .where(display_name: @uber).all
+        .where(day_of_week: @day, display_name: @uber).all
 
       @result_matches.each do |match|
         @filtered_results.push(match)

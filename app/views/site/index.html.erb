@@ -8,7 +8,6 @@
   <div id="clockbox"></div>
 
   <form action="/search" method="post" id="get-surge">
-    <input type="hidden" name="search[city]", class="form-control" id="city-form-field">
 
     <select class="form-control options" id="city">
       <option>Select City</option>
@@ -16,8 +15,6 @@
         <option><%= city %></option>
       <% end %>
     </select>
-
-    <input type="hidden" name="search[day]", class="form-control" id="day-form-field">
 
     <select class="form-control options" id="day">
       <option>Select Day of the Week</option>
@@ -30,8 +27,6 @@
       <option>Sunday</option>
     </select>
 
-    <input type="hidden" name="search[uber_type]", class="form-control" id="uber-form-field">
-
     <select class="form-control options" id="uber-type">
       <option>Select Uber Type</option>
       <% @uber_types.each do |uber_type| %>
@@ -39,7 +34,6 @@
       <% end %>
     </select>
 
-    <%= token_tag form_authenticity_token %>
     <input type="submit" value: "Get Surge Data", class="btn btn-default">
 
   </form>
