@@ -18,9 +18,15 @@ class UsersController < ApplicationController
     @user = User.new(new_user)
 
     if @user.save
-      redirect_to "/"
+      auth_user = User.authenticate(@user.email, @user.password)
+      if auth_user
+        session[:user_id] = @user.id
+        redirect_to user_path(@user.id), :notice => "Profile created!"
+      end
     else
-      redirect_to "/signup"
+      if User.find_by_email(@user.email)
+        redirect_to signup_path, :notice => "An account with that email already exists."
+      end
     end
   end
 
