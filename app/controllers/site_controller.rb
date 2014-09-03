@@ -33,6 +33,7 @@ class SiteController < ApplicationController
     @city_queries = PriceQuery.where(city: @city).all
 
     @filtered_results = []
+
     @city_queries.each do |query|
       @result_matches = query.price_results
         .where(day_of_week: @day, display_name: @uber).all

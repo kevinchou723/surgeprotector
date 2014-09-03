@@ -122,9 +122,3 @@ $(document).ready(function() {
     }); //close  .done(function(data) on line 22
   });
 }); //close $(document).ready(function() on line 1
-
-
-
-
-
-
