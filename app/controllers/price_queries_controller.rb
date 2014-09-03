@@ -17,14 +17,14 @@ class PriceQueriesController < ApplicationController
     query_params = params.require(:price_query).permit(:start_address, :nickname)
     puts "Before created price query" + params.inspect
     @price_query = @user.price_queries.create(query_params)
+
     if @price_query.valid?
       geo_results = Geocoder.search(@price_query.city)
       puts "geo_results!!!!!!!!!!!" 
-      puts @price_query.start_latitude
-      puts geo_results.first.latitude
       @price_query.end_latitude = geo_results.first.latitude
       puts @price_query.end_latitude
       @price_query.end_longitude = geo_results.first.longitude
+      @price_query.save
     end
     puts "After created price query" + params.inspect
 
