@@ -1,4 +1,7 @@
 class PriceQueriesController < ApplicationController
+
+  before_action :is_authenticated?
+  
   def new
   	@user = User.find_by_id(params[:user_id])
   	@price_query = @user.price_queries.new
