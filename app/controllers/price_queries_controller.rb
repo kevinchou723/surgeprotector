@@ -2,6 +2,11 @@ class PriceQueriesController < ApplicationController
 
   before_action :is_authenticated?
   
+  def index
+    @user = User.find_by_id(params[:user_id])
+    redirect_to "/users/#{@user.id}/"
+  end
+
   def new
   	@user = User.find_by_id(params[:user_id])
   	@price_query = @user.price_queries.new
@@ -10,9 +15,18 @@ class PriceQueriesController < ApplicationController
   def create
     @user = User.find_by_id(params[:user_id])
     query_params = params.require(:price_query).permit(:start_address, :nickname)
-    puts params.inspect
+    puts "Before created price query" + params.inspect
     @price_query = @user.price_queries.create(query_params)
-    puts params.inspect
+
+    if @price_query.valid?
+      geo_results = Geocoder.search(@price_query.city)
+      puts "geo_results!!!!!!!!!!!" 
+      @price_query.end_latitude = geo_results.first.latitude
+      puts @price_query.end_latitude
+      @price_query.end_longitude = geo_results.first.longitude
+      @price_query.save
+    end
+    puts "After created price query" + params.inspect
 
     # redirect_to user_price_query_path(@user.id)
     redirect_to "/users/#{@user.id}/price_queries/#{@price_query.id}"
