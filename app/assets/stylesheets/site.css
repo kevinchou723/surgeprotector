@@ -59,7 +59,6 @@ body {
   background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
   background-size: cover;
   background-position: fixed;
-
 }
 
 .left-side {
@@ -73,8 +72,7 @@ body {
   background-color: black;
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
   height: 60px;
-  border-style: none;
-  
+  border-style: none; 
 } 
 
 #navli {
@@ -82,7 +80,6 @@ body {
 
   font-size: 18px;
   /*color: #fefefe;*/
-
 }
 
 .nav.navbar-nav.navbar-right{
@@ -91,9 +88,9 @@ body {
 
 #clockbox {
   color: white;
-
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 20px;
 }
-
 
 .col-md-8.center.about{
   background-color: rgba(0,0,0,.75);
@@ -152,4 +149,6 @@ body {
   box-sizing: border-box;
 }
 
-
+.options {
+  margin-bottom: 20px;
+}

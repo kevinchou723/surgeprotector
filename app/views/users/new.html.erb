@@ -1,15 +1,17 @@
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8 center signup">
-			<h2 id="signup-h2">CREATE AN ACCOUNT</h2>
-			<div class="signup-form">
-				<%= render partial: "form", locals: {user: @user} %>
+<div class="col-md-2"></div>
+<div class="col-md-8 center signup">
+	<h2 id="signup-h2">CREATE AN ACCOUNT</h2>
+	<div class="signup-form">
+						
+		<% flash.each do |k, v| %>
+		  <h4 id="<%= k %>"><%= v %></h4>
+		<% end %>
 
-				<a href="/login">Already a member? Log in &raquo;</a>
-			</div>
-		</div>		
-		<div class="col-md-2"></div>
+		<%= render partial: "form", locals: {user: @user} %>
+
+
+		<a href="/login">Already a member? Log in &raquo;</a>
 	</div>
-</div>
+</div>		
+<div class="col-md-2"></div>
