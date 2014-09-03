@@ -12,7 +12,7 @@
 	<p>No saved places</p>
 <% else %>
 	<% @price_queries.each do |query| %>
-	  <p><a href="/users/<%= @user.id  %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
+	  <p><a href="/users/<%= @user.id %>/price_queries/<%=query.id%>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
 	<% end %>
 <% end %>
 
