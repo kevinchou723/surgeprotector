@@ -7,8 +7,8 @@ class PriceQuery < ActiveRecord::Base
   geocoded_by :start_address, :latitude => :start_latitude, :longitude => :start_longitude
   before_validation :geocode
 
-  # reverse_geocoded_by :start_latitude, :start_longitude
-  # before_validation :reverse_geocode
+  reverse_geocoded_by :start_latitude, :start_longitude
+  before_validation :reverse_geocode
 
 validates :start_latitude,
     :presence => true,
