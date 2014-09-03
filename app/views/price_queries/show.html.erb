@@ -8,6 +8,7 @@
 <%= button_to "Return to Profile", user_path(@user.id), method: :get, class: "btn btn-primary" %>
 
 <!-- for testing -->
+<div>CITY, reverse geocode of start address: <%= @price_query.city  %></div>
 <div>END latitude: <%= @price_query.end_latitude  %></div>
 <div>END longitude: <%= @price_query.end_longitude  %></div>
 
