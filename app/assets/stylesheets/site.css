@@ -68,16 +68,18 @@ html {
 }
 
 .navbar {
-  font-size: 17px;
+  font-size: 20px;
   background-color: black;
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
   height: 60px;
   border-style: none;
-  font-family: 'Michroma', sans-serif;
+  
 } 
 
 #navli {
-  color: rgb(161,225,179);
+  color: #70E1C6;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
   /*color: #fefefe;*/
 
 }
