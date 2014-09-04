@@ -25,9 +25,10 @@ class ApiCallsController < ApplicationController
       puts response
       response_array = response['prices']
 
+      if response_array
       # for each response, create a new price result associated with the price query
-      response_array.each do |response|
-        price_result = query.price_results.create(response)
+        response_array.each do |response|
+          price_result = query.price_results.create(response)
 
         # find the query's timezone
         timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
@@ -42,6 +43,7 @@ class ApiCallsController < ApplicationController
         # save the price result
         price_result.save
 
+        end
       end
 
       puts ' '
