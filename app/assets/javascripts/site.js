@@ -1,15 +1,33 @@
 $(document).ready(function() {
 
+  // set up display city to default to San Francisco
+  // or take on name of currently selected city
+  var default_city = "San Francisco";
+  var current_city = $('#city').val();  
 
+  if (current_city == "Select City"){
+    display_city = default_city;
+    console.log("display_city ", display_city);
+    console.log("current_city ", current_city);
+  } else {
+    display_city = current_city;
+  }
+  $("#display_city").html(display_city);
+
+  // actions to take after users request surge info
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
     console.log('clicked!!!');
 
-    var searchParams = {
-      city: $('#city').val(),
-      day: $('#day').val(),
-      uber_type: $('#uber-type').val()
-    };
+    // change city name when a new city is selected
+    var display_city = $('#city').val(); 
+    $("#display_city").html(display_city);
+
+      var searchParams = {
+        city: $('#city').val(),
+        day: $('#day').val(),
+        uber_type: $('#uber-type').val()
+      };
 
     console.log(searchParams);
 
@@ -38,14 +56,16 @@ $(document).ready(function() {
           // console.log(chartDataArray);
 
           // add data[i] chart object to chartDatasets
+          var uberDataColor = "#72c9b3";
+          
           var dataChartObject = {
             //the pre-set key values to get rid of lines/fill colors nad to set point colors etc
             label: "My First dataset",
             fillColor: "rgba(220,220,220,0)",
             strokeColor: "rgba(220,220,220,0)",
-            pointColor: "red",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
+            pointColor: uberDataColor ,
+            pointStrokeColor: uberDataColor ,
+            pointHighlightFill: uberDataColor ,
             pointHighlightStroke: "rgba(220,220,220,1)",
             // the data point to be plotted
             data: chartDataArray 
