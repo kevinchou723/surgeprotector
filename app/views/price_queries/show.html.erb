@@ -1,7 +1,8 @@
 <div class="col-sm-3 left-side" id="saved-place">
 
   <h1><%= @price_query.nickname %></h1>
-  <p><%= @price_query.start_address  %>, <%= @price_query.city %></p>
+  <p><%= @price_query.start_address  %></p>
+  <p>(<%= @price_query.city %>)</p>
 
   <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-danger" %>
 
