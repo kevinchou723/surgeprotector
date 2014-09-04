@@ -47,3 +47,7 @@ end
 gem 'timezone'
 
 gem 'geocoder'
+
+group :development, :test do
+  gem 'dotenv-rails'
+end
