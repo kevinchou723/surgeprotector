@@ -4,6 +4,7 @@ $(document).ready(function() {
   // or take on name of currently selected city
   var default_city = "San Francisco";
   var current_city = $('#city').val();
+  var myLineChart;
 
   if (current_city == "Select City"){
     display_city = default_city;
@@ -144,9 +145,12 @@ $(document).ready(function() {
         };
 
         var ctx = document.getElementById("myChart").getContext("2d"); //get our canvas from views/site/index.html.erb line 45
+        if (myLineChart){
+          myLineChart.destroy();
+        }
         $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
         $("#myChart").fadeIn('slow');
-        var myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
+        myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
       }
 
     }); //close  .done(function(data) on line 22
