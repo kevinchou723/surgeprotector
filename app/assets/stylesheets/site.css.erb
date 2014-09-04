@@ -19,10 +19,11 @@
         src: url("<%= asset_path('Nauman-Regular.otf') %>") format("truetype");
 }
 
-.container {
-  width: 1400px;
+.container-fluid {
+  width: 100%;
   font-family: "Nauman Regular", sans-serif;
 }
+
 
 .header a {
   margin-right: 10px;
@@ -53,7 +54,7 @@
 }
 
 .form-control {
-  width: 300px;
+  width: 100%;
 }
 
 h1 {
@@ -62,9 +63,8 @@ h1 {
 }
 
 body {
-  background-image: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg);
+  background: url(http://nyc.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/DSC_0916.jpg) no-repeat center center fixed;
   background-size: cover;
-  background-position: fixed;
 }
 
 .navbar.navbar-default.navbar-fixed-top {
@@ -89,7 +89,7 @@ body {
 
 #navli {
   color: #72c9b3;
-
+  font-family: "Nauman Regular", sans-serif;
   font-size: 18px;
   /*color: #fefefe;*/
 }
@@ -110,12 +110,13 @@ body {
 
 }
 
-.col-md-8.center.profile{
+.profile-form{
   margin-top: 30px;
   background-color: rgba(0,0,0,.75);
   color: white;
   height: relative;
   padding-bottom: 25px;
+  padding-top: 6px;
   text-align: center;
 
 }
@@ -124,12 +125,23 @@ body {
   width: 100px;
   background-color: #72c9b3;
   border: none;
+  color: black;
+  text-align: center;
+}
+
+.form-control.btn.btn-primary:hover{
+  background: #3f8c78 ;
 }
 
 .btn.btn-default {
-  width: 150px;
+  width: 110px;
   background-color: #72c9b3;
   border: none;
+}
+
+.btn.btn-default:hover {
+  background-color: #3f8c78;
+
 }
 
 .btn.btn-small {
@@ -137,13 +149,27 @@ body {
   border: none;
   color: white;
 }
+.btn.btn-small:hover {
+  background-color: #3f8c78;
 
+}
 .btn.btn-primary {
   border: none;
+  color: black;
 }
+
 
 .btn.btn-danger {
   border: none;
+  color: black;
+}
+
+
+
+#price_queries-h2 {
+  text-align: center;
+  margin-top: 40px;
+  color:white;
 }
 
 #signup-h2{
@@ -152,14 +178,19 @@ body {
   color:white;
 }
 
+#edit-profile-h2 {
+  text-align: center;
+  margin-top: 40px;
+  color:white;
+}
+
 .signup-form {
   background-color: rgba(0,0,0,.75);
   color: white;
-  padding-left: 14%;
-  padding-top: 25px;
+  padding: 1em 3em;
   height: 500px;
-  margin-left: 170px;
-  margin-right: 170px;
+  margin: 0 4% auto;
+  min-width: 200px;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -167,6 +198,33 @@ body {
 
 }
 
+.edit-profile-form {
+  background-color: rgba(0,0,0,.75);
+  color: white;
+  padding: 1em 3em;
+  height: 500px;
+  margin: 0 auto;
+  min-width: 200px
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+.price-queries-form {
+  background-color: rgba(0,0,0,.75);
+  color: white;
+  padding: 1em 3em;
+  height: 300px;
+  margin: 0 auto;
+  min-width: 200px
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
 
 #login-h1 {
   text-align: center;
