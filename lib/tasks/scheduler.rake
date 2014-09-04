@@ -23,7 +23,7 @@ task :uber_api_call => :environment do
     if response_array
     # for each response, create a new price result associated with the price query
       response_array.each do |response|
-        price_result = query.price_results.create(response)
+      price_result = query.price_results.create(response)
 
       # find the query's timezone
       timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
