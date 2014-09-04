@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   delete "/logout", to: 'session#destroy'
 
-  get "/logout" => "session#destroy" #TODO: DELETE THIS BEFORE PRODUCTION
-
-  # REMOVED TEST ROUTES RELATED TO PRICE RESULTS
+  get "/logout" => "session#destroy"
 
   get '/api_calls/index'
 
