@@ -32,7 +32,3 @@ end
 Timezone::Configure.begin do |c|
     c.username = 'lisavogtsf'
 end
-
-
-# config.assets.enabled = true
-# config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

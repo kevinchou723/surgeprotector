@@ -29,6 +29,7 @@ class PriceQueriesController < ApplicationController
       )
       puts "Before created price query" + params.inspect
       @price_query = @user.price_queries.create(query_params)
+      # adds geocoding for end point
       if @price_query.valid?
         geo_results = Geocoder.search(@price_query.city)
         puts "geo_results!!!!!!!!!!!" 
