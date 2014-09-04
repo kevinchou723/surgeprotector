@@ -8,10 +8,10 @@
   <h4 id="<%= k %>"><%= v %></h4>
 <% end %>
 
-<h3>Saved Places</h3>
 <% if @price_queries.length < 1 %>
-	<p>No saved places</p>
+  <h3>No Saved Places Yet</h3>
 <% else %>
+  <h3>Saved Places</h3>
 	<% @price_queries.each do |query| %>
 	  <p><a href="/users/<%= @user.id %>/places/<%= query.id %>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
 	<% end %>
