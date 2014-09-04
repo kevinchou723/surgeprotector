@@ -1,6 +1,7 @@
 
 <div class="col-md-2"></div>
 <div class="col-md-8 center profile">
+<div class="profile-form">
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <% flash.each do |k, v| %>
@@ -23,6 +24,7 @@
 <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
 <br/>
 <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
+</div>
 </div>
 <div class="col-md-2"></div>
 

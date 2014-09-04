@@ -1,3 +1,13 @@
 
-
-<%= render partial: "form", locals: {user: @user, price_query: @price_query} %>
+<div class="col-md-2"></div>
+<div class="col-md-8 center price-queries">
+	<h2 id="price_queries-h2">Add an Address</h2>
+	<div class="price-queries-form">
+						
+		<% flash.each do |k, v| %>
+		  <h4 id="<%= k %>"><%= v %></h4>
+		<% end %>
+	<%= render partial: "form", locals: {user: @user, price_query: @price_query} %>
+	</div>
+</div>		
+<div class="col-md-2"></div>
