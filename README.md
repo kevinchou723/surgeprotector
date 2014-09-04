@@ -1,7 +1,7 @@
 Surge Protector
 ==============
 
-Surge Protector allows users save their most-traveled Uber routes and track surge pricing over time. The motivation for this project is to provide transparent surge pricing data to predict the liklihood of future surges.
+Surge Protector allows users save their most-traveled Uber routes and track surge pricing over time. 
 
 ## Contributors:
 

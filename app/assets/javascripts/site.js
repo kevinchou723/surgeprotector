@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // set up display city to default to San Francisco
   // or take on name of currently selected city
-  var default_city = "San Francisco";
+  var default_city = "SurgeProtector";
   var current_city = $('#city').val();
 
   if (current_city == "Select City"){
