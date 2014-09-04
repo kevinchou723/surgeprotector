@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :price_queries
   end
 
+  get '/users/:user_id/places/new', to: 'price_queries#new'
+
   get '/signup', to: 'users#new'
 
   # 404 route -- update later to render 404 page?
