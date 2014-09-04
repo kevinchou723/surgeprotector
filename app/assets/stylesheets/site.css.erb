@@ -1,22 +1,6 @@
-* {
-
-}
-
-/*.header {
-  padding: 20px;
-}*/
-
-/*.footer {
-  height: 100px;
-  position: relative;
-  margin-top: -100px;
-  clear:both;
-  padding-top:20px;
-}*/
-
 @font-face {
-        font-family: "Nauman Regular";
-        src: url("<%= asset_path('Nauman-Regular.otf') %>") format("truetype");
+  font-family: "Nauman Regular";
+  src: url("<%= asset_path('Nauman-Regular.otf') %>") format("truetype");
 }
 
 .container-fluid {
@@ -24,42 +8,12 @@
   font-family: "Nauman Regular", sans-serif;
 }
 
-
-.header a {
-  margin-right: 10px;
-}
-
-.contributors {
-  border-top: 1px solid white;
-  margin-top: 30px;
-}
-
-.contributors h3 {
-  margin-bottom: 15px;
-}
-
-.contributors tr {
-  height: 130px;
-}
-
-.contributor-img {
-  width: 100px;
-  border-radius: 50px;
-  margin-right: 10px;
-}
-
-.dropdown-toggle {
-  width: 300px;
-  text-align: left;
-}
-
 .form-control {
   width: 100%;
 }
 
 h1 {
-  color: white;
-
+  color: #FFF;
 }
 
 body {
@@ -253,11 +207,13 @@ body {
   box-sizing: border-box;
 }
 
-/*styles for homepage*/
+/*general styles for site*/
 
-h4 {
+h4, p {
   color: #FFF;
 }
+
+/*styles for homepage*/
 
 .options {
   margin-bottom: 20px;
@@ -286,7 +242,7 @@ h4 {
 }
 
 #saved-place h3 {
-  color: white;
+  color: #FFF;
   margin-top: 50px;
 }
 
@@ -305,4 +261,10 @@ h4 {
 
 #sign-up-btn {
   margin-top: 30px;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 800px;
+  height: auto !important;
 }

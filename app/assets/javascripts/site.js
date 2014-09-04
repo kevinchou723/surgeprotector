@@ -40,7 +40,12 @@ $(document).ready(function() {
       console.log(data);
 
       if (data.length === 0) {
+        $("#myChart").hide();
         $('.no-data').fadeIn('slow');
+      }
+
+      else {
+        $("#myChart").show();
       }
 
       // CHART.JS LOGIC BELOW
@@ -100,10 +105,10 @@ $(document).ready(function() {
         // scaleGridLineColor : "rgba(0,0,0,.05)",
 
         // String - Colour of the scale line
-        scaleLineColor: "rgba(0,0,255,.9)",
+        scaleLineColor: "white",
 
         // String - Scale label font colour
-        scaleFontColor: "red",
+        scaleFontColor: "white",
 
         //Number - Width of the grid lines
         scaleGridLineWidth : 1,
@@ -141,6 +146,7 @@ $(document).ready(function() {
       };
 
       var ctx = document.getElementById("myChart").getContext("2d"); //get our canvas from views/site/index.html.erb line 45
+      $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
       var myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
 
     }); //close  .done(function(data) on line 22
