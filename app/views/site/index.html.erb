@@ -9,7 +9,7 @@
 
   <form action="/search" method="post" id="get-surge">
 
-    <select class="form-control options" id="city">
+    <select class="form-control options" id="city", autofocus >
       <option>Select City</option>
       <% @cities.each do |city| %>
         <option><%= city %></option>
