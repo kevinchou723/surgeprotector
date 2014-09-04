@@ -63,7 +63,7 @@ $(document).ready(function() {
             chartDataArray[j] = data[i].surge_multiplier;
            }
           }
-          // console.log(chartDataArray);
+          console.log(data[i].display_name);
 
           // add data[i] chart object to chartDatasets
           var uberDataColor = "#72c9b3";
@@ -80,6 +80,18 @@ $(document).ready(function() {
             // the data point to be plotted
             data: chartDataArray
           };
+
+
+          //assign each uber type a diferent point color on the chart
+          if(data[i].display_name === "uberX"){
+            dataChartObject.pointColor ="red";
+          }  else if (data[i].display_name === "uberTAXI"){
+            dataChartObject.pointColor ="orange";
+          } else if (data[i].display_name === "UberBLACK"){
+            dataChartObject.pointColor ="blue";
+          } else if (data[i].display_name === "UberSUV"){
+            dataChartObject.pointColor ="brown";
+          }
           chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
 
