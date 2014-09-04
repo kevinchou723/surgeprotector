@@ -63,7 +63,7 @@ example_query_sf.price_results.create({
 })
 
 example_query_nyc = PriceQuery.create({
-	:start_latitude => 40.739884,
+:start_latitude => 40.739884,
   :start_longitude => -73.9900754,
   :end_latitude => 40.74844,
   :end_longitude => -73.985664,
