@@ -28,7 +28,7 @@
     <input type="hidden", value="<%= @price_query.id %>" id="price-query-id">
     <input type="submit" value="Get Surge Data", class="btn btn-default" >
   </form>
-  <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15"></iframe>
+  <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_API_KEY'] %>&q=<%=@price_query.start_address%>&zoom=15"></iframe>
 
 </div>
 
