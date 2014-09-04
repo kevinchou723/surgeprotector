@@ -20,6 +20,8 @@ $(document).ready(function() {
     event.preventDefault();
     console.log('clicked!!!');
 
+    $('.no-data').hide();
+
     // change city name when new city is selected
     var display_city = $('#city').val(); 
     $("#display_city").html(display_city);
@@ -37,8 +39,14 @@ $(document).ready(function() {
       .done(function(data) {
       console.log(data);
 
+      if (data.length === 0) {
+        $("#myChart").hide();
+        $('.no-data').fadeIn('slow');
+      }
 
-      // CHART.JS LOGIC BELOW
+      else {
+
+        // CHART.JS LOGIC BELOW
         var chartDatasets = []; //to be filled in with an object for each data
 
         // iterate through data
@@ -84,61 +92,62 @@ $(document).ready(function() {
         };
 
 
-
         //options that we want to change from default values, see http://www.chartjs.org/docs/#getting-started-global-chart-configuration
         //and http://www.chartjs.org/docs/#line-chart-chart-options
         var options = {
 
-            ///Boolean - Whether grid lines are shown across the chart
-            scaleShowGridLines : false,
+          ///Boolean - Whether grid lines are shown across the chart
+          scaleShowGridLines : false,
 
-            // //String - Colour of the grid lines
-            // scaleGridLineColor : "rgba(0,0,0,.05)",
+          // //String - Colour of the grid lines
+          // scaleGridLineColor : "rgba(0,0,0,.05)",
 
-            // String - Colour of the scale line
-            scaleLineColor: "rgba(0,0,255,.9)",
+          // String - Colour of the scale line
+          scaleLineColor: "white",
 
-            // String - Scale label font colour
-            scaleFontColor: "red",
+          // String - Scale label font colour
+          scaleFontColor: "white",
 
-            //Number - Width of the grid lines
-            scaleGridLineWidth : 1,
+          //Number - Width of the grid lines
+          scaleGridLineWidth : 1,
 
-            //Boolean - Whether the line is curved between points
-            bezierCurve : true,
+          //Boolean - Whether the line is curved between points
+          bezierCurve : true,
 
-            //Number - Tension of the bezier curve between points
-            bezierCurveTension : 0.4,
+          //Number - Tension of the bezier curve between points
+          bezierCurveTension : 0.4,
 
-            //Boolean - Whether to show a dot for each point
-            pointDot : true,
+          //Boolean - Whether to show a dot for each point
+          pointDot : true,
 
-            //Number - Radius of each point dot in pixels
-            pointDotRadius : 6,
+          //Number - Radius of each point dot in pixels
+          pointDotRadius : 6,
 
-            //Number - Pixel width of point dot stroke
-            pointDotStrokeWidth : 1,
+          //Number - Pixel width of point dot stroke
+          pointDotStrokeWidth : 1,
 
-            //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-            pointHitDetectionRadius : 20,
+          //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+          pointHitDetectionRadius : 20,
 
-            //Boolean - Whether to show a stroke for datasets
-            datasetStroke : true,
+          //Boolean - Whether to show a stroke for datasets
+          datasetStroke : true,
 
-            //Number - Pixel width of dataset stroke
-            datasetStrokeWidth : 2,
+          //Number - Pixel width of dataset stroke
+          datasetStrokeWidth : 2,
 
-            //Boolean - Whether to fill the dataset with a colour
-            datasetFill : true,
+          //Boolean - Whether to fill the dataset with a colour
+          datasetFill : true,
 
-            //String - A legend template
-            legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+          //String - A legend template
+          legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
         };
 
         var ctx = document.getElementById("myChart").getContext("2d"); //get our canvas from views/site/index.html.erb line 45
+        $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
+        $("#myChart").fadeIn('slow');
         var myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
-
+      }
 
     }); //close  .done(function(data) on line 22
   });

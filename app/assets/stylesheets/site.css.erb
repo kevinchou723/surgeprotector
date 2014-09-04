@@ -1,22 +1,6 @@
-* {
-
-}
-
-/*.header {
-  padding: 20px;
-}*/
-
-/*.footer {
-  height: 100px;
-  position: relative;
-  margin-top: -100px;
-  clear:both;
-  padding-top:20px;
-}*/
-
 @font-face {
-        font-family: "Nauman Regular";
-        src: url("<%= asset_path('Nauman-Regular.otf') %>") format("truetype");
+  font-family: "Nauman Regular";
+  src: url("<%= asset_path('Nauman-Regular.otf') %>") format("truetype");
 }
 
 .container-fluid {
@@ -24,42 +8,12 @@
   font-family: "Nauman Regular", sans-serif;
 }
 
-
-.header a {
-  margin-right: 10px;
-}
-
-.contributors {
-  border-top: 1px solid white;
-  margin-top: 30px;
-}
-
-.contributors h3 {
-  margin-bottom: 15px;
-}
-
-.contributors tr {
-  height: 130px;
-}
-
-.contributor-img {
-  width: 100px;
-  border-radius: 50px;
-  margin-right: 10px;
-}
-
-.dropdown-toggle {
-  width: 300px;
-  text-align: left;
-}
-
 .form-control {
   width: 100%;
 }
 
 h1 {
-  color: white;
-
+  color: #FFF;
 }
 
 body {
@@ -75,19 +29,17 @@ body {
 
 .left-side {
   background-color: rgba(0,0,0,.75);
-  padding-bottom: 15%;
-  height: 7%;
-  width: 30%;
-  min-width: 260px;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
 .left-side.price-queries {
   background-color: rgba(0,0,0,.75);
   padding-bottom: 30px;
   height: 7%;
-  width: 30%;
   min-width: 260px;
 }
+
 .navbar {
   font-size: 20px;
   background-color: black;
@@ -122,12 +74,10 @@ body {
 .profile-form{
   margin-top: 30px;
   background-color: rgba(0,0,0,.75);
-  color: white;
+  color: #FFF;
   height: relative;
-  padding-bottom: 25px;
-  padding-top: 6px;
+  padding: 6px 10px 25px 20px;
   text-align: center;
-
 }
 
 .form-control.btn.btn-primary{
@@ -167,13 +117,10 @@ body {
   color: black;
 }
 
-
 .btn.btn-danger {
   border: none;
   color: black;
 }
-
-
 
 #price_queries-h2 {
   text-align: center;
@@ -258,22 +205,46 @@ body {
   box-sizing: border-box;
 }
 
+/*general styles for site*/
+
+h4, p {
+  color: #FFF;
+}
+
+.right-side {
+  text-align: center;
+}
+
+/*styles for homepage*/
+
 .options {
   margin-bottom: 20px;
+}
+
+.no-data {
+  display: none;
+  background-color: rgba(0,0,0,.75);
+  color: #FFF;
+  font-size: 2em;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20%;
+  padding: 20px;
 }
 
 /*styles for places show page*/
 
 #saved-place {
-  height: 100%;
+  padding-bottom: 10px;
 }
 
 #saved-place p {
-  color: white;
+  color: #FFF;
 }
 
 #saved-place h3 {
-  color: white;
+  color: #FFF;
   margin-top: 50px;
 }
 
@@ -285,5 +256,21 @@ body {
   width: 100%;
   height: 250px;
   border: 0;
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+/*styles for login page*/
+
+#sign-up-btn {
+  margin-top: 30px;
+}
+
+/*styles for chart*/
+
+canvas {
+  width: 100% !important;
+  max-width: 800px;
+  height: auto !important;
+  margin-top: 40px;
+  padding: 40px;
 }
