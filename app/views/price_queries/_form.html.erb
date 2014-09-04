@@ -1,6 +1,3 @@
-<!-- _form.html.erb -->
-
-
 <%= form_for [@user, @price_query] do |f| %>
 
   <div class="form-group">
@@ -10,7 +7,7 @@
 
   <div class="form-group">
     <%= f.label :nickname %>
-    <%= f.text_field :nickname, class: "form-control", autofocus: true %>
+    <%= f.text_field :nickname, class: "form-control" %>
   </div>
 
   <div class="form-group">

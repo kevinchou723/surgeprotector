@@ -39,10 +39,10 @@ class PriceQueriesController < ApplicationController
         @price_query.save
       end
       puts "After created price query" + params.inspect
-      redirect_to user_price_query_path(@user.id, @price_query.id)
+      redirect_to place_path(@user.id, @price_query.id)
     else
       session[:user_id] = nil
-      redirect_to login_path, :notice => 'Please re-login.'
+      redirect_to login_path, :notice => 'Please log in again.'
     end
   end
 
@@ -82,7 +82,7 @@ class PriceQueriesController < ApplicationController
       redirect_to user_path(@user.id)
     else
       session[:user_id] = nil
-      redirect_to login_path, :notice => 'Please re-login.'
+      redirect_to login_path, :notice => 'Please log in again.'
     end
   end
 end

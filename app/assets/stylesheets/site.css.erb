@@ -141,32 +141,16 @@ body {
   color:white;
 }
 
-.signup-form {
+.signup-form, .edit-profile-form {
   background-color: rgba(0,0,0,.75);
   color: white;
-  padding: 1em 3em;
+  padding: 2em;
   height: 500px;
   margin: 0 4% auto;
   min-width: 200px;
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-
-}
-
-.edit-profile-form {
-  background-color: rgba(0,0,0,.75);
-  color: white;
-  padding: 1em 3em;
-  height: 500px;
-  margin: 0 auto;
-  min-width: 200px
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
 }
 
 .price-queries-form {
@@ -216,6 +200,16 @@ h4, p {
   text-align: center;
 }
 
+/*styles for flash messages*/
+
+#notice {
+  color: #428BCA;
+}
+
+#alert {
+  color: #D9534F;
+}
+
 /*styles for homepage*/
 
 .options {
@@ -262,7 +256,7 @@ h4, p {
 
 /*styles for login page*/
 
-#sign-up-btn {
+#login-form, #sign-up-btn {
   margin-top: 30px;
 }
 

@@ -28,16 +28,16 @@ class UsersController < ApplicationController
         end
       else
         if User.find_by_email(@user.email)
-          redirect_to signup_path, :notice => 'An account with that email already exists.'
+          redirect_to signup_path, :alert => 'An account with that email already exists.'
         elsif @user.password.length < 6
-          redirect_to signup_path, :notice => 'Password must be at least 6 characters.'
+          redirect_to signup_path, :alert => 'Password must be at least 6 characters.'
         elsif @user.password != @user.password_confirmation
-          redirect_to signup_path, :notice => 'Passwords must match.'
+          redirect_to signup_path, :alert => 'Password must match password confirmation.'
         end
       end
     else
       session[:user_id] = nil
-      redirect_to login_path, :notice => 'Please re-login.'
+      redirect_to login_path, :notice => 'Please log in again.'
     end
   end
 
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       redirect_to user_path, :notice => 'Profile updated!'
     else
       session[:user_id] = nil
-      redirect_to login_path, :notice => 'Please re-login.'
+      redirect_to login_path, :notice => 'Please log in again.'
     end
   end
 
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
       redirect_to root_path, :notice => 'Profile deleted.'
     else
       session[:user_id] = nil
-      redirect_to login_path, :notice => 'Please re-login.'
+      redirect_to login_path, :notice => 'Please log in again.'
     end
   end
 
