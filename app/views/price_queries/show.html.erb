@@ -28,11 +28,11 @@
     <input type="hidden", value="<%= @price_query.id %>" id="price-query-id">
     <input type="submit" value="Get Surge Data", class="btn btn-default" >
   </form>
-	<br/><br/>
   <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15"></iframe>
 
 </div>
 
 <div class="col-sm-9">
+  <div class="no-data">No surge data matches selected filters.</div>
   <canvas id="myChart" width="800px" height="400"></canvas>
 </div>
