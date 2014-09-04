@@ -11,7 +11,6 @@ class SiteController < ApplicationController
     end
 
     @uber_types = []
-    @uber_types.push("view all Uber Types")
 
     PriceResult.all.each do |result|
       if @uber_types.include? result.display_name
@@ -20,9 +19,6 @@ class SiteController < ApplicationController
       end
     end
 
-    puts 'UBER TYPES!!!!'
-    puts @uber_types
-
   end
 
   def search
@@ -30,36 +26,50 @@ class SiteController < ApplicationController
     @city = params[:search][:city]
     @day = params[:search][:day]
     @uber = params[:search][:uber_type]
+    @query_id = params[:search][:price_query_id]
 
-    @city_queries = PriceQuery.where(city: @city).all
+    # SEARCH ON SPECIFIC PRICE_QUERY PAGE
+    if @city == nil
+      @city_query = PriceQuery.find(@query_id)
 
-    @filtered_results = []
-
-    # all uber types not yet working but not really breaking
-    if :uber_type == "view all Uber Types"
-      @city_queries.each do |query|
-        @result_matches = query.price_results
-          .where(day_of_week: @day).all
-
-        @result_matches.each do |match|
-          @filtered_results.push(match)
-        end
+      # if user selects 'All Uber Types'
+      if @uber == "All Uber Types"
+        @filtered_results = @city_query.price_results
+          .where(day_of_week: @day)
+      # if user selects specific uber type
+      else
+        @filtered_results = @city_query.price_results
+          .where(day_of_week: @day, display_name: @uber)
       end
+
+    # GENERAL SEARCH ON HOMEPAGE
     else
-      @city_queries.each do |query|
-        @result_matches = query.price_results
-          .where(day_of_week: @day, display_name: @uber).all
+      @city_queries = PriceQuery.where(city: @city)
+      @filtered_results = []
+      # if user selects 'All Uber Types'
+      if @uber == "All Uber Types"
+        @city_queries.each do |query|
+          @result_matches = query.price_results
+            .where(day_of_week: @day)
+          @result_matches.each do |match|
+            @filtered_results.push(match)
+          end
+        end
+      # if user selects specific uber type
+      else
+        @city_queries.each do |query|
+          @result_matches = query.price_results
+            .where(day_of_week: @day, display_name: @uber)
 
-        @result_matches.each do |match|
-          @filtered_results.push(match)
+          @result_matches.each do |match|
+            @filtered_results.push(match)
+          end
         end
       end
-    end # end of if else for all uber types
-
+    end
     respond_to do |f|
       f.json {render :json => @filtered_results}
     end
-
   end
 
   def about
