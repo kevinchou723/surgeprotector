@@ -3,7 +3,7 @@ $(document).ready(function() {
   // set up display city to default to San Francisco
   // or take on name of currently selected city
   var default_city = "San Francisco";
-  var current_city = $('#city').val();  
+  var current_city = $('#city').val();
 
   if (current_city == "Select City"){
     display_city = default_city;
@@ -23,7 +23,7 @@ $(document).ready(function() {
     $('.no-data').hide();
 
     // change city name when new city is selected
-    var display_city = $('#city').val(); 
+    var display_city = $('#city').val();
     $("#display_city").html(display_city);
 
     var searchParams = {
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
           // add data[i] chart object to chartDatasets
           var uberDataColor = "#72c9b3";
-          
+
           var dataChartObject = {
             //the pre-set key values to get rid of lines/fill colors nad to set point colors etc
             label: "My First dataset",
@@ -77,13 +77,13 @@ $(document).ready(function() {
             pointHighlightFill: uberDataColor ,
             pointHighlightStroke: "rgba(220,220,220,1)",
             // the data point to be plotted
-            data: chartDataArray 
+            data: chartDataArray
           };
-          chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart 
+          chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
 
 
-        var chartLabels = [0,1,2,3,4,5,6,7,8,9,1,11,12,13,14,15,16,17,18,19,20,21,22,23]; //the X-axis of the chart
+        var chartLabels = ["12 AM","1 AM","2 AM","3 AM","4 AM","5 AM","6 AM","7 AM","8 AM","9 AM","10 AM","11 AM","12 PM","1 PM","2 PM","3 PM","4 PM","5 PM","6 PM","7 PM","8 PM","9 PM","10 PM","11 PM"]; //the X-axis of the chart
 
         //the chartData to be passed to our chart
         var chartData = {
