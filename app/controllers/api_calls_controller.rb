@@ -21,8 +21,6 @@ class ApiCallsController < ApplicationController
       )
 
       response = JSON.parse(request.body)
-      puts "CHECKING RESPONSE ARRAY IN API ApiCallsController"
-      puts response
       response_array = response['prices']
 
       if response_array

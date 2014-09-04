@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
 
-	has_many :price_queries
+	has_many :price_queries, dependent: :destroy
 
 	validates :email,
 		presence: true,
@@ -21,7 +21,5 @@ class User < ActiveRecord::Base
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate, password)
 	end
-
-	# could add method to reset password here
 
 end

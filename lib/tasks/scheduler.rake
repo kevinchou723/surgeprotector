@@ -3,7 +3,7 @@ desc 'This task is called by the Heroku scheduler add-on'
 task :uber_api_call => :environment do
 
   price_queries = PriceQuery.all
-    price_queries.each do |query|
+  price_queries.each do |query|
 
     # price estimates request from uber
     request = Typhoeus.get(
@@ -20,9 +20,10 @@ task :uber_api_call => :environment do
     response = JSON.parse(request.body)
     response_array = response['prices']
 
+    if response_array
     # for each response, create a new price result associated with the price query
-    response_array.each do |response|
-      price_result = query.price_results.create(response)
+      response_array.each do |response|
+        price_result = query.price_results.create(response)
 
       # find the query's timezone
       timezone = Timezone::Zone.new :latlon => [query.start_latitude, query.start_longitude]
@@ -37,6 +38,7 @@ task :uber_api_call => :environment do
       # save the price result
       price_result.save
 
+      end
     end
   end
 
