@@ -10,20 +10,22 @@
 			<% flash.each do |k, v| %>
 				<h4 id="<%= k %>"><%= v %></h4>
 			<% end %>
-
-			<%= form_for :user do |f|, id: "login-form" %>
-				<div class="form-group">
-				    <%= f.label :email %>:
-				    <%= f.email_field :email , class: "form-control"%>
-				</div>
-				<div class="form-group">
-				    <%= f.label :password %>:
-				    <%= f.password_field :password , class: "form-control"%>
-				</div>
-				<div class="form-group">
-					<%= f.submit "Login", class: "form-control btn btn-primary"  %>
-				</div>
-			<% end %>
+			
+			<div id="login-form">
+				<%= form_for :user do |f| %>
+					<div class="form-group">
+					    <%= f.label :email %>:
+					    <%= f.email_field :email , class: "form-control"%>
+					</div>
+					<div class="form-group">
+					    <%= f.label :password %>:
+					    <%= f.password_field :password , class: "form-control"%>
+					</div>
+					<div class="form-group">
+						<%= f.submit "Login", class: "form-control btn btn-primary"  %>
+					</div>
+				<% end %>
+			</div>
 		</div>
 
 		<div class="col-md-6 new-users">
