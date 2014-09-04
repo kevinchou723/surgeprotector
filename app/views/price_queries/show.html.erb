@@ -1,9 +1,9 @@
-<div class="col-md-3 left-side" id="saved-place">
+<div class="col-xs-12 col-sm-6 col-sm-3-offset left-side price-queries" id="saved-place">
 
   <h1><%= @price_query.nickname %></h1>
   <p><%= @price_query.start_address  %>, <%= @price_query.city %></p>
 
-  <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-default" %>
+  <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-danger" %>
 
   <h3>Filter Surge Data</h3>
 
@@ -28,7 +28,7 @@
     <input type="hidden", value="<%= @price_query.id %>" id="price-query-id">
     <input type="submit" value="Get Surge Data", class="btn btn-default" >
   </form>
-
+	<br/><br/>
   <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15"></iframe>
 
 </div>
