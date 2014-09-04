@@ -4,6 +4,7 @@ $(document).ready(function() {
   // or take on name of currently selected city
   var default_city = "SurgeProtector";
   var current_city = $('#city').val();
+  var myLineChart;
 
   if (current_city == "Select City"){
     display_city = default_city;
@@ -62,7 +63,7 @@ $(document).ready(function() {
             chartDataArray[j] = data[i].surge_multiplier;
            }
           }
-          // console.log(chartDataArray);
+          console.log(data[i].display_name);
 
           // add data[i] chart object to chartDatasets
           var uberDataColor = "#72c9b3";
@@ -79,6 +80,18 @@ $(document).ready(function() {
             // the data point to be plotted
             data: chartDataArray
           };
+
+
+          //assign each uber type a diferent point color on the chart
+          if(data[i].display_name === "uberX"){
+            dataChartObject.pointColor ="red";
+          }  else if (data[i].display_name === "uberTAXI"){
+            dataChartObject.pointColor ="orange";
+          } else if (data[i].display_name === "UberBLACK"){
+            dataChartObject.pointColor ="blue";
+          } else if (data[i].display_name === "UberSUV"){
+            dataChartObject.pointColor ="brown";
+          }
           chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
 
@@ -144,9 +157,12 @@ $(document).ready(function() {
         };
 
         var ctx = document.getElementById("myChart").getContext("2d"); //get our canvas from views/site/index.html.erb line 45
+        if (myLineChart){
+          myLineChart.destroy();
+        }
         $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
         $("#myChart").fadeIn('slow');
-        var myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
+        myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
       }
 
     }); //close  .done(function(data) on line 22
