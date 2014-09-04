@@ -1,9 +1,25 @@
 $(document).ready(function() {
 
+  // set up display city to default to San Francisco
+  // or take on name of currently selected city
+  var default_city = "San Francisco";
+  var current_city = $('#city').val();  
+
+  if (current_city == "Select City"){
+    display_city = default_city;
+    console.log("display_city ", display_city);
+    console.log("current_city ", current_city);
+  } else {
+    display_city = current_city;
+  }
+  $("#display_city").html(display_city);
 
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
     console.log('clicked!!!');
+
+    var display_city = $('#city').val(); 
+    $("#display_city").html(display_city);
 
     var searchParams = {
       city: $('#city').val(),
