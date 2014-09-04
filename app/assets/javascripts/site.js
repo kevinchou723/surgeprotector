@@ -12,29 +12,30 @@ $(document).ready(function() {
   } else {
     display_city = current_city;
   }
+
   $("#display_city").html(display_city);
 
-  // actions to take after users request surge info
+  // after user requests surge info
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
     console.log('clicked!!!');
 
-    // change city name when a new city is selected
+    // change city name when new city is selected
     var display_city = $('#city').val(); 
     $("#display_city").html(display_city);
 
-      var searchParams = {
-        city: $('#city').val(),
-        day: $('#day').val(),
-        uber_type: $('#uber-type').val()
-      };
+    var searchParams = {
+      city: $('#city').val(),
+      day: $('#day').val(),
+      uber_type: $('#uber-type').val(),
+      price_query_id: $('#price-query-id').val() || null
+    };
 
     console.log(searchParams);
 
     $.post('/search.json', {search: searchParams})
       .done(function(data) {
       console.log(data);
-
 
 
       // CHART.JS LOGIC BELOW

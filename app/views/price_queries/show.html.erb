@@ -1,25 +1,38 @@
-<!-- show.html.erb -->
-<h1><%= @price_query.nickname %></h1>
+<div class="col-md-3 left-side" id="saved-place">
 
-<div>Start Address: <%= @price_query.start_address  %>, <%= @price_query.city  %></div>
-<div>Start latitude: <%= @price_query.start_latitude  %></div>
-<div>Start longitude: <%= @price_query.start_longitude  %></div>
+  <h1><%= @price_query.nickname %></h1>
+  <p><%= @price_query.start_address  %>, <%= @price_query.city %></p>
 
-<%= button_to "Add a new place", new_place_path(@user.id), method: :get, class: "btn btn-default"  %>
-<%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-danger"  %>
-<br/>
+  <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-default" %>
 
-<%= button_to "Return to Profile", user_path(@user.id), method: :get, class: "btn btn-primary" %>
+  <h3>Filter Surge Data</h3>
 
-<!-- for testing -->
-<!-- <div>CITY, reverse geocode of start address: <%= @price_query.city  %></div>
-<div>END latitude: <%= @price_query.end_latitude  %></div>
-<div>END longitude: <%= @price_query.end_longitude  %></div> -->
-<!-- closes testing -->
+  <form action="/search" method="post" id="get-surge">
+    <select class="form-control options" id="day">
+      <option>Select Day of the Week</option>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
+    </select>
+    <select class="form-control options" id="uber-type">
+      <option>Select Uber Type</option>
+      <% @uber_types.each do |uber_type| %>
+        <option><%= uber_type %></option>
+      <% end %>
+      <option>All Uber Types</option>
+    </select>
+    <input type="hidden", value="<%= @price_query.id %>" id="price-query-id">
+    <input type="submit" value="Get Surge Data", class="btn btn-default" >
+  </form>
 
-<iframe
-  width="450"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15">
-</iframe>
+  <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15"></iframe>
+
+</div>
+
+<div class="col-md-9 center">
+  <canvas id="myChart" width="800px" height="600"></canvas>
+</div>
