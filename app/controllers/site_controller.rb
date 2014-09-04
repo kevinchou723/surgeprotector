@@ -11,6 +11,7 @@ class SiteController < ApplicationController
     end
 
     @uber_types = []
+    @uber_types.push("View all Uber Types")
 
     PriceResult.all.each do |result|
       if @uber_types.include? result.display_name
