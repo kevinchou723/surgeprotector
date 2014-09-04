@@ -11,7 +11,6 @@ class SiteController < ApplicationController
     end
 
     @uber_types = []
-    @uber_types.push("view all Uber Types")
 
     PriceResult.all.each do |result|
       if @uber_types.include? result.display_name
@@ -35,8 +34,11 @@ class SiteController < ApplicationController
 
     @filtered_results = []
 
-    # all uber types not yet working but not really breaking
-    if :uber_type == "view all Uber Types"
+    puts 'ALL UBER TYPES'
+
+    # if user selects 'All Uber Types'
+    if @uber == "All Uber Types"
+      puts 'INSIDE ALL UBER TYPES!!!!!'
       @city_queries.each do |query|
         @result_matches = query.price_results
           .where(day_of_week: @day).all
@@ -45,6 +47,7 @@ class SiteController < ApplicationController
           @filtered_results.push(match)
         end
       end
+
     else
       @city_queries.each do |query|
         @result_matches = query.price_results
@@ -54,7 +57,7 @@ class SiteController < ApplicationController
           @filtered_results.push(match)
         end
       end
-    end # end of if else for all uber types
+    end
 
     respond_to do |f|
       f.json {render :json => @filtered_results}
