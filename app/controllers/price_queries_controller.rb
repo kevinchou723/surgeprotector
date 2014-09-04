@@ -3,39 +3,56 @@ class PriceQueriesController < ApplicationController
   before_action :is_authenticated?
   
   def index
-    @user = User.find_by_id(params[:user_id])
-    redirect_to "/users/#{@user.id}/"
+    if User.find(params[:user_id]) != @current_user
+      redirect_to user_path(@current_user.id)
+    else
+      @user = @current_user
+      redirect_to user_path(@user.id)
+    end
   end
 
   def new
-  	@user = User.find_by_id(params[:user_id])
-  	@price_query = @user.price_queries.new
+    if User.find(params[:user_id]) != @current_user
+      redirect_to new_user_price_query_path(@current_user.id)
+    else
+      @user = @current_user
+      @price_query = @user.price_queries.new
+    end
   end
 
   def create
-    @user = User.find_by_id(params[:user_id])
-    query_params = params.require(:price_query).permit(:start_address, :nickname)
-    puts "Before created price query" + params.inspect
-    @price_query = @user.price_queries.create(query_params)
-
-    if @price_query.valid?
-      geo_results = Geocoder.search(@price_query.city)
-      puts "geo_results!!!!!!!!!!!" 
-      @price_query.end_latitude = geo_results.first.latitude
-      puts @price_query.end_latitude
-      @price_query.end_longitude = geo_results.first.longitude
-      @price_query.save
+    if User.find(params[:user_id]) == @current_user
+      @user = @current_user
+      query_params = params.require(:price_query).permit(
+        :start_address,
+        :nickname
+      )
+      puts "Before created price query" + params.inspect
+      @price_query = @user.price_queries.create(query_params)
+      if @price_query.valid?
+        geo_results = Geocoder.search(@price_query.city)
+        puts "geo_results!!!!!!!!!!!" 
+        @price_query.end_latitude = geo_results.first.latitude
+        puts @price_query.end_latitude
+        @price_query.end_longitude = geo_results.first.longitude
+        @price_query.save
+      end
+      puts "After created price query" + params.inspect
+      redirect_to user_price_query_path(@user.id, @price_query.id)
+    else
+      session[:user_id] = nil
+      redirect_to login_path, :notice => 'Please re-login.'
     end
-    puts "After created price query" + params.inspect
-
-    # redirect_to user_price_query_path(@user.id)
-    redirect_to "/users/#{@user.id}/price_queries/#{@price_query.id}"
   end
 
   def show
-    @user = User.find_by_id(params[:user_id])
-    @price_query = PriceQuery.find_by_id(params[:id])
-    puts params.inspect
+    if User.find(params[:user_id]) != @current_user
+      redirect_to user_path(@current_user.id)
+    else
+      @user = @current_user
+      @price_query = PriceQuery.find_by_id(params[:id])
+      puts params.inspect
+    end
   end
 
   ## decided to simplify and not include these actions
@@ -47,16 +64,18 @@ class PriceQueriesController < ApplicationController
   # def update
   #     @user = User.find_by_id(params[:user_id])
   #     @price_query = PriceQuery.find_by_id(params[:id])
-
   #     redirect_to user_path(@user.id)
   # end
 
   def destroy
-      @user = User.find_by_id(params[:user_id])
+    if User.find(params[:user_id]) == @current_user
+      @user = @current_user
       @price_query = PriceQuery.find_by_id(params[:id])
-
       @price_query.destroy
-
       redirect_to user_path(@user.id)
+    else
+      session[:user_id] = nil
+      redirect_to login_path, :notice => 'Please re-login.'
+    end
   end
 end

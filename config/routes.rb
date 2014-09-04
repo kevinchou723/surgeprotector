@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :price_queries
   end
 
-  get '/users/:user_id/places/new', to: 'price_queries#new'
+  get '/users/:user_id/places/new', to: 'price_queries#new', as: 'places'
 
   get '/signup', to: 'users#new'
 
