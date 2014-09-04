@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if session[:user_id] != nil
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(@current_user.id)
     else
       @user = User.new
     end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if User.find(params[:id]) != @current_user
       redirect_to user_path(@current_user.id)
     else
-      @user = current_user
+      @user = @current_user
       @price_queries = @user.price_queries
     end
   end
@@ -54,13 +54,13 @@ class UsersController < ApplicationController
     if User.find(params[:id]) != @current_user
       redirect_to edit_user_path(@current_user.id)
     else
-      @user = current_user
+      @user = @current_user
     end
   end
 
   def update
-    if User.find(params[:id]) == current_user
-      @user = current_user
+    if User.find(params[:id]) == @current_user
+      @user = @current_user
       updated_user = params.require(:user).permit(
         :first_name,
         :last_name,
@@ -83,8 +83,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if User.find(params[:id]) == current_user
-      @user = current_user
+    if User.find(params[:id]) == @current_user
+      @user = @current_user
       @user.destroy
       session[:user_id] = nil
       redirect_to root_path, :notice => 'Profile deleted.'

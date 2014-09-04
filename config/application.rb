@@ -32,4 +32,3 @@ end
 Timezone::Configure.begin do |c|
     c.username = 'lisavogtsf'
 end
-

@@ -1,11 +1,11 @@
 <!-- show.html.erb -->
-<h1>Show User Saved Place</h1>
+<h1><%= @price_query.nickname %></h1>
 
 <div>Start Address: <%= @price_query.start_address  %>, <%= @price_query.city  %></div>
 <div>Start latitude: <%= @price_query.start_latitude  %></div>
 <div>Start longitude: <%= @price_query.start_longitude  %></div>
 
-<%= button_to "Add a new place", new_user_price_query_path(@user.id), method: :get, class: "btn btn-default"  %>
+<%= button_to "Add a new place", new_place_path(@user.id), method: :get, class: "btn btn-default"  %>
 <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-danger"  %>
 <br/>
 
