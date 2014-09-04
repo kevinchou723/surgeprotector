@@ -52,7 +52,13 @@ class PriceQueriesController < ApplicationController
     else
       @user = @current_user
       @price_query = PriceQuery.find_by_id(params[:id])
-      puts params.inspect
+      @uber_types = []
+      PriceResult.all.each do |result|
+        if @uber_types.include? result.display_name
+        else
+          @uber_types.push(result.display_name)
+        end
+      end
     end
   end
 
