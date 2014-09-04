@@ -1,7 +1,7 @@
 Surge Protector
 ==============
 
-Track Uber surge Prices for your favorite locations.
+Surge Protector allows users save their most-traveled Uber routes and track surge pricing over time. The motivation for this project is to provide transparent surge pricing data to predict the liklihood of future surges.
 
 ## Contributors:
 
@@ -22,3 +22,8 @@ The motivation for this project is provide transparent surge pricing data to pre
 
 * Ruby on Rails
 * Uber API
+* PostgreSQL
+* Uber API
+* Chart.js
+* Ajax
+* Ruby Geocoder
