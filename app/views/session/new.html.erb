@@ -22,7 +22,7 @@
 				    <%= f.password_field :password , class: "form-control" %>
 					</div>
 					<div class="form-group">
-						<%= f.submit "Login", class: "form-control btn btn-primary"  %>
+						<%= f.submit "Login", class: "form-control btn btn-default", id: "login-btn" %>
 					</div>
 				<% end %>
 			</div>
@@ -31,7 +31,7 @@
 		<div class="col-md-6 new-users">
 			<h3>New Users</h3>
 			<h5>Sign up to track surge pricing for your favorite locations</h5>
-			<%= button_to "Register", "/signup", method: :get, class: "btn btn-default", id:"sign-up-btn"%>
+			<%= button_to "Register", "/signup", method: :get, class: "btn btn-default", id:"signup-btn"%>
 		</div>
 	</div>
 </div>
