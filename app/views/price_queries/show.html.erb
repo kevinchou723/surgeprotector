@@ -2,28 +2,17 @@
 
   <h1><%= @price_query.nickname %></h1>
 
-  <div>Start Address: <%= @price_query.start_address  %>, <%= @price_query.city  %></div>
-  <div>Start latitude: <%= @price_query.start_latitude  %></div>
-  <div>Start longitude: <%= @price_query.start_longitude  %></div>
+  <div><%= @price_query.start_address  %>, <%= @price_query.city %></div>
 
-  <%= button_to "Add a new place", new_place_path(@user.id), method: :get, class: "btn btn-default"  %>
-  <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-danger"  %>
-  <br/>
+  <%= button_to "Delete this place", user_price_query_path(@user.id, @price_query.id), method: :delete, class: "btn btn-default"  %>
 
-  <%= button_to "Return to Profile", user_path(@user.id), method: :get, class: "btn btn-primary" %>
+  <%= button_to "Return to Profile", user_path(@user.id), method: :get, class: "btn btn-default" %>
 
   <!-- for testing -->
   <!-- <div>CITY, reverse geocode of start address: <%= @price_query.city  %></div>
   <div>END latitude: <%= @price_query.end_latitude  %></div>
   <div>END longitude: <%= @price_query.end_longitude  %></div> -->
   <!-- closes testing -->
-
-  <iframe
-    width="450"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15">
-  </iframe>
 
 </div>
 
@@ -57,4 +46,11 @@
   </form>
 
     <canvas id="myChart" width="800" height="400"></canvas>
+
+  <iframe
+    width="450"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRM8UQB34Os-POEUqDMhoFq-s4rmfnAx8&q=<%=@price_query.start_address%>&zoom=15">
+  </iframe>
 </div>
