@@ -39,12 +39,13 @@ In addition, this project fulfills the [requirements for the second project](htt
 This wireframe shows our design concept for the front page:
 ![front page wireframe](/app/assets/images/surgeprotector_wireframe.png "Front page wireframe")
 
-This is an earlier surge meter concept we triedout:
+This is an earlier surge meter concept we tried out:
 ![early red/green surge meter](/app/assets/images/surge_meter_WedAM.png "Early Surge Meter")
 ## User Stories/Site Flow
 
 ## Entity Relationship Diagram
 This basic whiteboard drawing depicts the main relationships in our database. One user has many price_queries, and one price query has many price_results. There are some price queries that belong to no user, but that doesn't cause any problems. 
+
 ![minimal_ERD](/app/assets/images/minimal_ERD.png "Minimal ERD")
 
 This whiteboard depicts a stage where we considered having a cities table, an idea we abandoned.  This image also shows the attributes we planned to use with our tables. Notes at upper right are for geocoding addresses supplied by users, as the Uber API requires start and end latitude and longitude information.
@@ -52,3 +53,11 @@ This whiteboard depicts a stage where we considered having a cities table, an id
 
 
 ## Wishlist
+
+* Oauth--this would open up many additional options for using the Uber API
+** Let users login using Uber credentials
+** Add "call to action" button, allowing users to jump directly to Uber's app'
+** browse Uber history, suggest places users might want to save and monitor based on their history
+** add additional query types, ability to know average wait time for an Uber at different times of day
+* Add photos via Instagram API, of origin or destination, so people can preview their route
+* Automatically get user's location 
