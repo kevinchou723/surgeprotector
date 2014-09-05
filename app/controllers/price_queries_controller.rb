@@ -4,7 +4,7 @@ class PriceQueriesController < ApplicationController
   
   def index
     if User.find(params[:user_id]) != @current_user
-      redirect_to user_path(@current_user.id)
+      redirect_to user_path(current_user.id)
     else
       @user = @current_user
       redirect_to user_path(@user.id)
@@ -13,7 +13,7 @@ class PriceQueriesController < ApplicationController
 
   def new
     if User.find(params[:user_id]) != @current_user
-      redirect_to new_user_price_query_path(@current_user.id)
+      redirect_to new_user_price_query_path(current_user.id)
     else
       @user = @current_user
       @price_query = @user.price_queries.new
@@ -61,7 +61,7 @@ class PriceQueriesController < ApplicationController
 
   def show
     if User.find(params[:user_id]) != @current_user
-      redirect_to user_path(@current_user.id)
+      redirect_to user_path(current_user.id)
     else
       @user = @current_user
       @price_query = PriceQuery.find_by_id(params[:id])
