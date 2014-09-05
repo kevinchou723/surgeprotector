@@ -23,6 +23,7 @@ The motivation for this project is provide transparent surge pricing data to pre
 In addition, this project fulfills the [requirements for the second project](https://github.com/wdi-sf-july/project_specs) in the General Assembly Web Development Immersive.
 
 ## Wireframes
+![front page wireframe](/app/assets/images/surgeprotector_wireframe.png "Front page wireframe")
 
 ## User Stories/Site Flow
 
