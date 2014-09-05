@@ -40,15 +40,15 @@ This wireframe shows our design concept for the front page:
 ![front page wireframe](/app/assets/images/surgeprotector_wireframe.png "Front page wireframe")
 
 This is an earlier surge meter concept we triedout:
-![early red/green surge meter](/Users/lisavogtsf/repos/projects_wdi/surgeprotector/app/assets/images/surge_meter_WedAM.png "Early Surge Meter")
+![early red/green surge meter](/app/assets/images/surge_meter_WedAM.png "Early Surge Meter")
 ## User Stories/Site Flow
 
 ## Entity Relationship Diagram
 This basic whiteboard drawing depicts the main relationships in our database. One user has many price_queries, and one price query has many price_results. There are some price queries that belong to no user, but that doesn't cause any problems. 
-![minimal_ERD](/Users/lisavogtsf/repos/projects_wdi/surgeprotector/app/assets/images/minimal_ERD.png "Minimal ERD")
+![minimal_ERD](/app/assets/images/minimal_ERD.png "Minimal ERD")
 
 This whiteboard depicts a stage where we considered having a cities table, an idea we abandoned.  This image also shows the attributes we planned to use with our tables. Notes at upper right are for geocoding addresses supplied by users, as the Uber API requires start and end latitude and longitude information.
-![early ERD with attributes](/Users/lisavogtsf/repos/projects_wdi/surgeprotector/app/assets/images/early_ERD_with_properties.png "early ERD with attributes")
+![early ERD with attributes](/app/assets/images/early_ERD_with_properties.png "early ERD with attributes")
 
 
 ## Wishlist
