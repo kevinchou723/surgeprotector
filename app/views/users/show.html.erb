@@ -1,4 +1,5 @@
 <div class="col-md-2"></div>
+
 <div class="col-md-8 center profile">
   <div class="profile-form">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
@@ -7,22 +8,35 @@
       <h4 id="<%= k %>"><%= v %></h4>
     <% end %>
 
-    <% if @price_queries.length < 1 %>
-      <h3>No Saved Places Yet</h3>
-    <% else %>
-      <h3>Saved Places</h3>
-    	<% @price_queries.each do |query| %>
-    	  <p><a href="/users/<%= @user.id %>/places/<%= query.id %>"> "<%= query.nickname %>," <%= query.city %> </a> </p>
-    	<% end %>
-    <% end %>
+    <div class="row profile" >
+    
+      <div class="col-xs-4" >
+        <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
+        <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
+      </div>
 
-    <%= button_to "Add a new place", new_place_path(@user.id), method: :get, class: "btn btn-default"  %>
+      <div class="col-xs-4">
+        <% if @price_queries.length < 1 %>
+          <h3>No Saved Places Yet</h3>
+        <% else %>
+          <h3 class="underline">Saved Places</h3>
+          <div id="saved-places">
+            <% @price_queries.each do |query| %>
+              <h4><a href="/users/<%= @user.id %>/places/<%= query.id %>"> "<%= query.nickname %>," <%= query.city %></a></h4>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
 
-    <br/><br/><br/>
+      <div class="col-xs-4" >
+        <%= button_to "Add a New Place", new_place_path(@user.id), method: :get, class: "btn btn-default" %>
+        <span class="glyphicon glyphicon-globe right-margin"></span>
+        <span class="glyphicon glyphicon-picture right-margin"></span>
+        <span class="glyphicon glyphicon-map-marker"></span>
+      </div>
 
-    <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
-    <br/>
-    <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
+    </div>
+
   </div>
 </div>
 <div class="col-md-2"></div>
