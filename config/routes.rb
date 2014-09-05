@@ -8,15 +8,13 @@ Rails.application.routes.draw do
 
   get "/logout" => "session#destroy"
 
-  get '/api_calls/index'
-
-  get '/about', to: 'site#about'
-
   get '/index', to: 'site#index'
 
   root to: 'site#index'
 
   post '/search', to: 'site#search'
+
+  get '/about', to: 'site#about'
 
   resources :users do
     resources :price_queries
@@ -28,7 +26,6 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
 
-  # 404 route -- update later to render 404 page?
-  # get '*path', to: 'site#index'
+  get '*path', to: 'site#index'
 
 end
