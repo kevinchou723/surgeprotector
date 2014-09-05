@@ -5,23 +5,21 @@ $(document).ready(function() {
   // set up display city to reflect
   // name of currently selected city
 
-  if ($('#city').val() === 'Select City') {
-    $('#display_city').html('SurgeProtector');
-  } else {
-    $('#display_city').html($('#city').val());
-  }
+  $('#display_city').html('SurgeProtector');
 
   // after user requests surge info
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
     console.log('clicked!!!');
 
+    if ($('#city').val() === 'Select City') {
+      $('#display_city').html('SurgeProtector');
+    } else {
+      $('#display_city').html($('#city').val());
+    }
+
     $('.no-data').hide();
     $('.welcome-message').hide();
-
-    // change city name when new city is selected
-    var display_city = $('#city').val();
-    $("#display_city").html(display_city);
 
     var searchParams = {
       city: $('#city').val(),
