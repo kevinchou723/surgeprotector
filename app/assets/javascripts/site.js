@@ -1,20 +1,15 @@
 $(document).ready(function() {
 
-  // set up display city to default to San Francisco
-  // or take on name of currently selected city
-  var default_city = "SurgeProtector";
-  var current_city = $('#city').val();
   var myLineChart;
 
-  if (current_city == "Select City"){
-    display_city = default_city;
-    console.log("display_city ", display_city);
-    console.log("current_city ", current_city);
-  } else {
-    display_city = current_city;
-  }
+  // set up display city to reflect
+  // name of currently selected city
 
-  $("#display_city").html(display_city);
+  if ($('#city').val() === 'Select City') {
+    $('#display_city').html('SurgeProtector');
+  } else {
+    $('#display_city').html($('#city').val());
+  }
 
   // after user requests surge info
   $('#get-surge').on('submit', function(event) {
@@ -165,6 +160,6 @@ $(document).ready(function() {
         myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
       }
 
-    }); //close  .done(function(data) on line 22
+    }); //close .done(function(data) on line 22
   });
 }); //close $(document).ready(function() on line 1
