@@ -1,31 +1,25 @@
 $(document).ready(function() {
 
-  // set up display city to default to San Francisco
-  // or take on name of currently selected city
-  var default_city = "SurgeProtector";
-  var current_city = $('#city').val();
   var myLineChart;
 
-  if (current_city == "Select City"){
-    display_city = default_city;
-    console.log("display_city ", display_city);
-    console.log("current_city ", current_city);
-  } else {
-    display_city = current_city;
-  }
+  // set up display city to reflect
+  // name of currently selected city
 
-  $("#display_city").html(display_city);
+  $('#display_city').html('SurgeProtector');
 
   // after user requests surge info
   $('#get-surge').on('submit', function(event) {
     event.preventDefault();
     console.log('clicked!!!');
 
-    $('.no-data').hide();
+    if ($('#city').val() === 'Select City') {
+      $('#display_city').html('SurgeProtector');
+    } else {
+      $('#display_city').html($('#city').val());
+    }
 
-    // change city name when new city is selected
-    var display_city = $('#city').val();
-    $("#display_city").html(display_city);
+    $('.no-data').hide();
+    $('.welcome-message').hide();
 
     var searchParams = {
       city: $('#city').val(),
@@ -47,7 +41,7 @@ $(document).ready(function() {
 
       else {
 
-        // CHART.JS LOGIC BELOW
+        // CHART.JS LOGIC
         var chartDatasets = []; //to be filled in with an object for each data
 
         // iterate through data
@@ -81,7 +75,6 @@ $(document).ready(function() {
             data: chartDataArray
           };
 
-
           //assign each uber type a diferent point color on the chart
           if(data[i].display_name === "uberX"){
             dataChartObject.pointColor ="red";
@@ -95,7 +88,6 @@ $(document).ready(function() {
           chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
 
-
         var chartLabels = ["12 AM","1 AM","2 AM","3 AM","4 AM","5 AM","6 AM","7 AM","8 AM","9 AM","10 AM","11 AM","12 PM","1 PM","2 PM","3 PM","4 PM","5 PM","6 PM","7 PM","8 PM","9 PM","10 PM","11 PM"]; //the X-axis of the chart
 
         //the chartData to be passed to our chart
@@ -103,7 +95,6 @@ $(document).ready(function() {
             labels: chartLabels,
             datasets: chartDatasets //populated above by oterating through data
         };
-
 
         //options that we want to change from default values, see http://www.chartjs.org/docs/#getting-started-global-chart-configuration
         //and http://www.chartjs.org/docs/#line-chart-chart-options
@@ -160,11 +151,11 @@ $(document).ready(function() {
         if (myLineChart){
           myLineChart.destroy();
         }
-        $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
+        $("#myChart").css('backgroundColor', 'rgba(0, 0, 0, .75)');
         $("#myChart").fadeIn('slow');
         myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
       }
 
-    }); //close  .done(function(data) on line 22
+    }); //close .done(function(data) on line 22
   });
 }); //close $(document).ready(function() on line 1

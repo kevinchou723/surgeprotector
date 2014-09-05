@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if session[:user_id] != nil
-      redirect_to user_path(@current_user.id)
+      redirect_to user_path(current_user.id)
     else
       @user = User.new
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def show
     if User.find(params[:id]) != @current_user
-      redirect_to user_path(@current_user.id)
+      redirect_to user_path(current_user.id)
     else
       @user = @current_user
       @price_queries = @user.price_queries
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def edit
     if User.find(params[:id]) != @current_user
-      redirect_to edit_user_path(@current_user.id)
+      redirect_to edit_user_path(current_user.id)
     else
       @user = @current_user
     end

@@ -5,7 +5,10 @@
   <% end %>
 
   <h1 id="display_city"></h1>
-  <div id="clockbox"></div>
+
+  <!-- hide the clock for now - ideally want it
+  to display current time in selected city -->
+  <!-- <div id="clockbox"></div> -->
 
   <form action="/search" method="post" id="get-surge">
 
@@ -41,6 +44,16 @@
 </div>
 
 <div class="col-sm-9 right-side">
+
+  <% if session[:user_id] == nil %>
+    <div class="welcome-message">
+      <h1>Welcome to SurgeProtector!</h1>
+      <h4>Use the filters on the left to display historic data about Uber surge pricing.</h4>
+      <h4>You can also <a href="/signup">create an account</a> to track surge pricing for your favorite locations.</h4>
+      <img src="chart.png" >
+    </div>
+  <% end %>
+
   <div class="no-data">No surge data matches selected filters.</div>
   <canvas id="myChart" width="800" height="400"></canvas>
 </div>
