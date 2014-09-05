@@ -17,6 +17,7 @@ $(document).ready(function() {
     console.log('clicked!!!');
 
     $('.no-data').hide();
+    $('.welcome-message').hide();
 
     // change city name when new city is selected
     var display_city = $('#city').val();
@@ -42,7 +43,7 @@ $(document).ready(function() {
 
       else {
 
-        // CHART.JS LOGIC BELOW
+        // CHART.JS LOGIC
         var chartDatasets = []; //to be filled in with an object for each data
 
         // iterate through data
@@ -76,7 +77,6 @@ $(document).ready(function() {
             data: chartDataArray
           };
 
-
           //assign each uber type a diferent point color on the chart
           if(data[i].display_name === "uberX"){
             dataChartObject.pointColor ="red";
@@ -90,7 +90,6 @@ $(document).ready(function() {
           chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
 
-
         var chartLabels = ["12 AM","1 AM","2 AM","3 AM","4 AM","5 AM","6 AM","7 AM","8 AM","9 AM","10 AM","11 AM","12 PM","1 PM","2 PM","3 PM","4 PM","5 PM","6 PM","7 PM","8 PM","9 PM","10 PM","11 PM"]; //the X-axis of the chart
 
         //the chartData to be passed to our chart
@@ -98,7 +97,6 @@ $(document).ready(function() {
             labels: chartLabels,
             datasets: chartDatasets //populated above by oterating through data
         };
-
 
         //options that we want to change from default values, see http://www.chartjs.org/docs/#getting-started-global-chart-configuration
         //and http://www.chartjs.org/docs/#line-chart-chart-options
@@ -155,7 +153,7 @@ $(document).ready(function() {
         if (myLineChart){
           myLineChart.destroy();
         }
-        $("#myChart").css('backgroundColor', 'rgba(0,0,0,.75)');
+        $("#myChart").css('backgroundColor', 'rgba(0, 0, 0, .75)');
         $("#myChart").fadeIn('slow');
         myLineChart = new Chart(ctx).Line(chartData, options); //CREATE THE CHART
       }
