@@ -84,13 +84,13 @@ $(document).ready(function() {
 
           //assign each uber type a diferent point color on the chart
           if(data[i].display_name === "uberX"){
-            dataChartObject.pointColor ="red";
+            dataChartObject.pointColor ="#4E6A99";
           }  else if (data[i].display_name === "uberTAXI"){
-            dataChartObject.pointColor ="orange";
+            dataChartObject.pointColor ="#D6FF80";
           } else if (data[i].display_name === "UberBLACK"){
-            dataChartObject.pointColor ="blue";
+            dataChartObject.pointColor ="#E687FF";
           } else if (data[i].display_name === "UberSUV"){
-            dataChartObject.pointColor ="brown";
+            dataChartObject.pointColor ="#CC7D6C";
           }
           chartDatasets.push(dataChartObject); //push the chartDataArray to the array of objects to be passed to Chart
         } //close iterating through data
