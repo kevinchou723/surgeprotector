@@ -48,7 +48,7 @@ class PriceQueriesController < ApplicationController
         puts @price_query.end_latitude
         @price_query.end_longitude = geo_results.first.longitude
         @price_query.save
-        redirect_to place_path(@user.id, @price_query.id), :notice => 'New place created successfully. You start getting surge data after ten minutes.'
+        redirect_to place_path(@user.id, @price_query.id), :notice => 'New place created successfully. You\'ll start getting surge data after a few hours.'
       else
         redirect_to new_user_price_query_path(@user.id), :alert => 'Please try again.'
       end
