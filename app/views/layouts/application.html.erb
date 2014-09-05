@@ -12,9 +12,16 @@
 <div class="header">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </button>
       <div class="navbar-header">
         <a id="navli" class ="navbar-brand" href="/">SurgeProtector</a>
       </div>
+
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <% if session[:user_id] != nil %>
@@ -39,7 +46,7 @@
   <div class="row">
 
     <%= yield %>
-    
+
   </div>
 </div>
 

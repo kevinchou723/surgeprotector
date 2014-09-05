@@ -34,6 +34,7 @@ body {
   margin-top: 20px;
 }
 
+
 .left-side.price-queries {
   background-color: rgba(0,0,0,.75);
   padding-bottom: 30px;
@@ -47,6 +48,30 @@ body {
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#302D2D), to(#575757), color-stop(0,#171717));*/
   height: 60px;
   border-style: none;
+}
+
+.navbar-toggle.collapsed{
+  background-color: black;
+  border-color: #72c9b3;
+}
+
+.navbar-toggle::after {
+  background-color: black;
+  border-color: #72c9b3;
+}
+
+.navbar-toggle.collapsed:hover {
+  background-color: #474747;
+  border-color: #72c9b3;
+}
+
+.navbar-collapse.collapse.in {
+  background-color: black;
+}
+
+.navbar-toggle:focus{
+  background-color: #474747 !important;
+  border-color: #72c9b3  !important;
 }
 
 #navli {
@@ -157,6 +182,7 @@ h4, p {
 .right-side {
   text-align: center;
 }
+
 
 .btn-default {
   width: 140px;
