@@ -9,8 +9,8 @@ class PriceQuery < ActiveRecord::Base
 
   # reverse geocode start lat and lon to get the name of the city the request is in
   reverse_geocoded_by :start_latitude, :start_longitude do |query, results|
-    if geo = results.first
-      query.city = geo.city
+    if geo_results = results.first
+      query.city = geo_results.city
     end
   end
   before_validation :reverse_geocode
