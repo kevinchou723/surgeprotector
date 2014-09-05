@@ -17,3 +17,5 @@
 
 # ignore .env files, api keys etc
 .env
+
+results.json
