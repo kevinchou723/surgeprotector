@@ -38,8 +38,8 @@ class PriceQueriesController < ApplicationController
         @price_query.end_longitude = geo_results.first.longitude
         @price_query.save
       end
-      puts "After created price query" + params.inspect
-      redirect_to place_path(@user.id, @price_query.id)
+      # puts "After created price query" + params.inspect
+      redirect_to place_path(@user.id, @price_query.id), :notice => 'New place created successfully.'
     else
       session[:user_id] = nil
       redirect_to login_path, :notice => 'Please log in again.'
