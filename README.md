@@ -1,7 +1,7 @@
 Surge Protector
 ==============
 
-Surge Protector allows users save their most-traveled Uber routes and track surge pricing over time. 
+Surge Protector allows users to visualize Uber surge pricing changes over time. 
 
 ## Contributors:
 
@@ -12,7 +12,7 @@ Surge Protector allows users save their most-traveled Uber routes and track surg
 
 ## Overview
 
-Surge Protector allows users save their most-traveled Uber routes and track surge pricing over time.
+Surge Protector lets visitors browse historic Uber surge pricing dataj. It also allows registered users to save specific Uber pick-up places and track surge pricing for those spots.
 
 ## Motivation
 
