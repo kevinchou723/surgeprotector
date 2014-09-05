@@ -10,12 +10,14 @@
 
     <div class="row profile" >
     
-      <div class="col-xs-4" >
-        <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
-        <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
+      <div class="col-sm-4" >
+        <%= button_to "Add a New Place", new_place_path(@user.id), method: :get, class: "btn btn-default" %>
+        <span class="glyphicon glyphicon-globe right-margin"></span>
+        <span class="glyphicon glyphicon-picture right-margin"></span>
+        <span class="glyphicon glyphicon-map-marker"></span>
       </div>
 
-      <div class="col-xs-4">
+      <div class="col-sm-4">
         <% if @price_queries.length < 1 %>
           <h3>No Saved Places Yet</h3>
         <% else %>
@@ -28,11 +30,9 @@
         <% end %>
       </div>
 
-      <div class="col-xs-4" >
-        <%= button_to "Add a New Place", new_place_path(@user.id), method: :get, class: "btn btn-default" %>
-        <span class="glyphicon glyphicon-globe right-margin"></span>
-        <span class="glyphicon glyphicon-picture right-margin"></span>
-        <span class="glyphicon glyphicon-map-marker"></span>
+      <div class="col-sm-4" >
+        <%= button_to "Edit Profile", edit_user_path(@user.id), method: :get, class: "btn btn-primary" %>
+        <%= button_to "Delete Profile", user_path(@user.id), method: :delete, class: "btn btn-danger" %>
       </div>
 
     </div>
