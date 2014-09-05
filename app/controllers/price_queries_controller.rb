@@ -27,19 +27,32 @@ class PriceQueriesController < ApplicationController
         :start_address,
         :nickname
       )
-      puts "Before created price query" + params.inspect
-      @price_query = @user.price_queries.create(query_params)
-      # adds geocoding for end point
+
+      # test geocode from start_address to start_lat/start_lon
+      initial_results = Geocoder.search(query_params["start_address"])
+      if initial_results.length > 1
+        redirect_to new_user_price_query_path(@user.id), :alert => 'Too many results for that address. Please be more specific.'
+        return false
+      elsif initial_results.length < 1
+         redirect_to new_user_price_query_path(@user.id), :alert => 'Could not find that address. Please be more specific.'
+         return false
+      elsif initial_results.length == 1
+        # creates price query if one valid address match was found
+        @price_query = @user.price_queries.create(query_params)
+      end
+
+      # adds geocoding for end point, using generic lat/long for name of city
       if @price_query.valid?
         geo_results = Geocoder.search(@price_query.city)
-        puts "geo_results!!!!!!!!!!!" 
         @price_query.end_latitude = geo_results.first.latitude
         puts @price_query.end_latitude
         @price_query.end_longitude = geo_results.first.longitude
         @price_query.save
+        redirect_to place_path(@user.id, @price_query.id), :notice => 'New place created successfully. You start getting surge data after ten minutes.'
+      else
+        redirect_to new_user_price_query_path(@user.id), :alert => 'Please try again.'
       end
-      puts "After created price query" + params.inspect
-      redirect_to place_path(@user.id, @price_query.id)
+    # if the user is not the correct user of this page
     else
       session[:user_id] = nil
       redirect_to login_path, :notice => 'Please log in again.'
