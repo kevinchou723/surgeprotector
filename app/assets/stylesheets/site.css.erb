@@ -50,12 +50,15 @@ body {
   border-style: none;
 }
 
-.navbar-toggle.collapsed {
+.navbar-toggle.collapsed{
   background-color: black;
   border-color: #72c9b3;
 }
 
-
+.navbar-toggle::after {
+  background-color: black;
+  border-color: #72c9b3;
+}
 
 .navbar-toggle.collapsed:hover {
   background-color: #474747;
@@ -64,9 +67,12 @@ body {
 
 .navbar-collapse.collapse.in {
   background-color: black;
-
 }
 
+.navbar-toggle:focus{
+  background-color: #474747 !important;
+  border-color: #72c9b3  !important;
+}
 
 #navli {
   color: #72c9b3;
