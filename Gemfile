@@ -40,10 +40,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'typhoeus'
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
-end
-
 gem 'timezone'
 
 gem 'geocoder'
@@ -54,4 +50,13 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
+
+group :development, :test do
+	gem 'factory_girl_rails'
+	gem 'ffaker'
 end
