@@ -50,8 +50,12 @@ gem 'geocoder'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
 end
 
 group :production do
   gem 'rails_12factor'
 end
+
