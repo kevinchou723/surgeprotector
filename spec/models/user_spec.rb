@@ -70,6 +70,7 @@ RSpec.describe User, :type => :model do
     })
     subject.price_queries << price_query
     expect(subject.price_queries.length).to eql(1)
+    expect(price_query.user).to eql(subject)
   end
 
 end
