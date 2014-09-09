@@ -1,5 +1,3 @@
-# user.rb
-
 FactoryGirl.define do
   sequence :email do |n|
     "user_#{n}@factory.com"

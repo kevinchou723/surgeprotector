@@ -39,6 +39,7 @@ RSpec.describe PriceQuery, :type => :model do
     })
     subject.price_results << price_result
     expect(subject.price_results.length).to eql(1)
+    expect(price_result.price_query).to eql(subject)
   end
 
   it 'should belong to a user' do

@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :price_result do
     localized_display_name 'uberX'
     low_estimate '5'
@@ -10,5 +9,4 @@ FactoryGirl.define do
     high_estimate '7'
     currency_code 'USD'
   end
-
 end

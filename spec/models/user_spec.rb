@@ -7,7 +7,7 @@ RSpec.describe User, :type => :model do
     expect(subject).to be_valid
   end
 
-    it 'should validate presence of first and last name' do
+  it 'should validate presence of first and last name' do
     cameron = User.create({
       :email => 'cameron@gmail.com',
       :password => '123456',
@@ -16,7 +16,7 @@ RSpec.describe User, :type => :model do
     expect(cameron.errors.size).to eql(2)
   end
 
-    it 'should validate presence of email' do
+  it 'should validate presence of email' do
     cameron = User.create({
       :first_name => 'Cameron',
       :last_name => 'Jacoby',
@@ -60,14 +60,7 @@ RSpec.describe User, :type => :model do
   end
 
   it 'should have many price queries' do
-    cameron = User.create({
-      :email => 'cameron@gmail.com',
-      :first_name => 'Cameron',
-      :last_name => 'Jacoby',
-      :password => '123456',
-      :password_confirmation => '123456'
-    })
-    cameron.price_queries.create({
+    price_query = PriceQuery.create({
       :start_latitude => 37.786958,
       :start_longitude => -122.394462,
       :end_latitude => 37.787933,
@@ -75,7 +68,8 @@ RSpec.describe User, :type => :model do
       :city => 'San Francisco',
       :nickname => 'GA to Union Square'
     })
-    expect(cameron.price_queries.length).to eql(1)
+    subject.price_queries << price_query
+    expect(subject.price_queries.length).to eql(1)
   end
 
 end
