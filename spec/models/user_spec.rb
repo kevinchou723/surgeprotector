@@ -60,17 +60,12 @@ RSpec.describe User, :type => :model do
   end
 
   it 'should have many price queries' do
-    price_query = PriceQuery.create({
-      :start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square'
-    })
-    subject.price_queries << price_query
-    expect(subject.price_queries.length).to eql(1)
-    expect(price_query.user).to eql(subject)
+    price_query_1 = FactoryGirl.create(:price_query)
+    price_query_2 = FactoryGirl.create(:price_query)
+    subject.price_queries << [price_query_1, price_query_2]
+    expect(subject.price_queries.length).to eql(2)
+    expect(price_query_1.user).to eql(subject)
+    expect(price_query_2.user).to eql(subject)
   end
 
 end
