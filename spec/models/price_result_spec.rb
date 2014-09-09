@@ -13,18 +13,10 @@ RSpec.describe PriceResult, :type => :model do
   end
 
   it 'should belong to a price query' do
-    @example_query = PriceQuery.create({
-      :start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square',
-      :start_address => '501 Folsom Street, San Francisco, CA'
-    })
-    @example_query.price_results << subject
-    expect(@example_query.price_results.length).to eql(1)
-    expect(subject.price_query).to eql(@example_query)
+    price_query_1 = FactoryGirl.create(:price_query)
+    price_query_1.price_results << subject
+    expect(subject.price_query).to eql(price_query_1)
+    expect(price_query_1.price_results.length).to eql(1)
   end
 
 end
