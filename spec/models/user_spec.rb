@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
+
   subject {FactoryGirl.create(:user)}
 
   it "should have a valid factory" do
     expect(subject).to be_valid
   end
 
-    it 'should validate presence of first and last name' do
+  it 'should validate presence of first and last name' do
     cameron = User.create({
       :email => 'cameron@gmail.com',
       :password => '123456',
@@ -16,7 +17,7 @@ RSpec.describe User, :type => :model do
     expect(cameron.errors.size).to eql(2)
   end
 
-    it 'should validate presence of email' do
+  it 'should validate presence of email' do
     cameron = User.create({
       :first_name => 'Cameron',
       :last_name => 'Jacoby',
@@ -60,22 +61,12 @@ RSpec.describe User, :type => :model do
   end
 
   it 'should have many price queries' do
-    cameron = User.create({
-      :email => 'cameron@gmail.com',
-      :first_name => 'Cameron',
-      :last_name => 'Jacoby',
-      :password => '123456',
-      :password_confirmation => '123456'
-    })
-    cameron.price_queries.create({
-      :start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square'
-    })
-    expect(cameron.price_queries.length).to eql(1)
+    price_query_1 = FactoryGirl.create(:price_query)
+    price_query_2 = FactoryGirl.create(:price_query)
+    subject.price_queries << [price_query_1, price_query_2]
+    expect(subject.price_queries.length).to eql(2)
+    expect(price_query_1.user).to eql(subject)
+    expect(price_query_2.user).to eql(subject)
   end
 
 end
