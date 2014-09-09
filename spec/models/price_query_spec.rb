@@ -27,32 +27,19 @@ RSpec.describe PriceQuery, :type => :model do
   end
 
   it 'should have many price results' do
-    price_result = PriceResult.create({
-      :localized_display_name => 'uberX',
-      :low_estimate =>'5',
-      :display_name =>'uberX',
-      :product_id =>'a1111c8c-c720-46c3-8534-2fcdd730040d',
-      :surge_multiplier =>1.0,
-      :estimate =>'$5-7',
-      :high_estimate =>'7',
-      :currency_code =>'USD'
-    })
-    subject.price_results << price_result
-    expect(subject.price_results.length).to eql(1)
-    expect(price_result.price_query).to eql(subject)
+    price_result_1 = FactoryGirl.create(:price_result)
+    price_result_2 = FactoryGirl.create(:price_result)
+    subject.price_results << [price_result_1, price_result_2]
+    expect(subject.price_results.length).to eql(2)
+    expect(price_result_1.price_query).to eql(subject)
+    expect(price_result_2.price_query).to eql(subject)
   end
 
   it 'should belong to a user' do
-    cameron = User.create({
-      :email => 'cameron@gmail.com',
-      :first_name => 'Cameron',
-      :last_name => 'Jacoby',
-      :password => '123456',
-      :password_confirmation => '123456'
-    })
-    cameron.price_queries << subject
-    expect(cameron.price_queries.length).to eql(1)
-    expect(subject.user).to eql(cameron)
+    user_1 = FactoryGirl.create(:user)
+    user_1.price_queries << subject
+    expect(subject.user).to eql(user_1)
+    expect(user_1.price_queries.length).to eql(1)
   end
 
 end
