@@ -2,48 +2,11 @@ require 'rails_helper'
 
 RSpec.describe PriceQuery, :type => :model do
 
-  it 'should create a new price query without saving to the database' do
-    example_query_sf = PriceQuery.new({
-      :start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square'
-    })
-    expect(example_query_sf.start_latitude).to eql(37.786958)
-    expect(example_query_sf.start_longitude).to eql(-122.394462)
-    expect(example_query_sf.end_latitude).to eql(37.787933)
-    expect(example_query_sf.end_longitude).to eql(-122.4074981)
-    expect(example_query_sf.city).to eql('San Francisco')
-    expect(example_query_sf.nickname).to eql('GA to Union Square')
-  end
+  subject {FactoryGirl.create(:price_query)}
 
-  it 'should save a new price query to the database' do
-    example_query_sf = PriceQuery.new({
-      :start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square'
-    })
-    expect(example_query_sf.new_record?).to eql(true)
-    example_query_sf.save
-    expect(example_query_sf.new_record?).to eql(false)
+  it 'should have a valid factory' do
+    expect(subject).to be_valid
   end
-
-	it 'should create a new price query and save it to the database' do
-		example_query_sf = PriceQuery.create({
-			:start_latitude => 37.786958,
-      :start_longitude => -122.394462,
-      :end_latitude => 37.787933,
-      :end_longitude => -122.4074981,
-      :city => 'San Francisco',
-      :nickname => 'GA to Union Square'
-    })
-		expect(example_query_sf).not_to eql(nil)
-	end
 
   it 'should validate presence and numbericality of start points' do
     example_query_sf = PriceQuery.create({
