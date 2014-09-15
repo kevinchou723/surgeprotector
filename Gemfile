@@ -48,9 +48,10 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
+# removed for deployment 
+# group :production do
+#   gem 'rails_12factor'
+# end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
