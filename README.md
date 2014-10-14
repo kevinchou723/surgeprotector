@@ -43,20 +43,11 @@ This wireframe shows our design concept for the front page:
 
 This is an earlier surge meter concept we tried out:
 ![early red/green surge meter](/app/assets/images/surge_meter_WedAM.png "Early Surge Meter")
+
 ## User Stories
 As an Uber user I want to know when price surges occur so that I can plan around them. From the Uber app I can already find out the surge price at any moment, but with SurgeProtector I can track the timing of surges from the past. Then I can plan to contact Uber before a regular price surge begins (morning commute, evening commute, late night after last call).
 
 I can also save specific location information for the places I user Uber most, as surge pricing may be different for that neighborhood than for the entire city.
-
-
-## Entity Relationship Diagram
-This basic whiteboard drawing depicts the main relationships in our database. One user has many price_queries, and one price query has many price_results. There are some price queries that belong to no user, but that doesn't cause any problems. 
-
-![minimal_ERD](/app/assets/images/minimal_ERD.png "Minimal ERD")
-
-This whiteboard depicts a stage where we considered having a cities table, an idea we abandoned.  This image also shows the attributes we planned to use with our tables. Notes at upper right are for geocoding addresses supplied by users, as the Uber API requires start and end latitude and longitude information.
-![early ERD with attributes](/app/assets/images/early_ERD_with_properties.png "early ERD with attributes")
-
 
 ## Wishlist
 
@@ -68,7 +59,22 @@ This whiteboard depicts a stage where we considered having a cities table, an id
 * Add photos via Instagram API, of origin or destination, so people can preview their route
 * Automatically get user's location to show them local results first
 * Offer more types of queries, such as the estimated amount of time it takes for an Uber to arrive at a certain location, tracked over time, again giving more predictive power
-* * Oauth would open up many additional options for using the Uber API
+* Oauth would open up many additional options for using the Uber API
   * Let users login using Uber credentials, access their Uber profile information
   * Search a user's Uber history and suggest places users might want to save and monitor based on their history
   * Add "call to action" button, allowing users to jump directly to Uber's app'
+  
+## Addendum: Uber Privacy Policy
+Due to a change in the Uber Privacy Policy required for access to the API and the completion of our Web Development Immersive at General Assembly we are no longer gathering new data for SurgeProtector.  As a result new users will not be able to get information on their selected places. 
+
+SurgeProtector continues to display surge pricing data from August and September 2014 in the following cities:
+
+* San Francisco
+* New York
+* Los Angeles
+* Seattle
+* London
+* Hong Kong
+* Melbourne
+* Sydney
+* Jacksonville
