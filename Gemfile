@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# errors budling due to incompatible version of ruby
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -48,10 +50,9 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-# removed for deployment 
-# group :production do
-#   gem 'rails_12factor'
-# end
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
