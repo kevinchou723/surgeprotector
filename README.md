@@ -6,7 +6,6 @@ SurgeProtector allows users to visualize Uber surge pricing changes over time.
 * the code is here on GitHub [github.com/PAUCHOU/surgeprotector](https://github.com/PAUCHOU/surgeprotector)
 
 * the app is deployed on Heroku [surgeprotector.herokuapp.com](http://surgeprotector.herokuapp.com/) 
-(deployment issues due to Heroku change of Cedar stack have been resolved)
 
 ## Contributors
 
